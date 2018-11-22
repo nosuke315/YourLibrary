@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Editing Player - baseball</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Editing Player</h1>
+      <form th:action="@{/{id}(id=*{id})}" th:method="put" th:object="${player}">
+        <div class="form-group">
+          <label class="control-label">名前</label>
+          <!-- ① -->
+          <input class="form-control" type="text" th:field="*{name}" />
+        </div>
+        <div class="form-group">
+          <label class="control-label">年齢</label>
+          <input class="form-control" type="number" th:field="*{age}" />
+        </div>
+        <div class="form-group">
+          <label class="control-label">チーム名</label>
+          <input class="form-control" type="text" th:field="*{team}" />
+        </div>
+        <div class="form-group">
+          <label class="control-label">守備位置</label>
+          <input class="form-control" type="text" th:field="*{position}" />
+        </div>
+        <button class="btn btn-default" type="submit">更新</button>
+      </form>
+      <div class="pull-right">
+        <a class="btn btn-link" href="/">一覧画面へ</a>
+      </div>
+    </div>
+  </body>
+</html>

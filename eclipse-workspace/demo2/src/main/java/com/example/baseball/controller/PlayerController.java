@@ -22,30 +22,30 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
-    @RequestMapping()
+    @GetMapping
     public String index(Model model) { // ②
         List<Player> players = playerService.findAll();
         model.addAttribute("players", players); // ③
-        return "/players/index"; // ④
+        return "players/index"; // ④
     }
 
     @GetMapping("new")
     public String newPlayer(Model model) {
-        return "/players/new";
+        return "players/new";
     }
 
     @GetMapping("{id}/edit")
     public String edit(@PathVariable Long id, Model model) { // ⑤
         Player player = playerService.findOne(id);
         model.addAttribute("player", player);
-        return "/players/edit";
+        return "players/edit";
     }
 
     @GetMapping("{id}")
     public String show(@PathVariable Long id, Model model) {
         Player player = playerService.findOne(id);
         model.addAttribute("player", player);
-        return "/players/show";
+        return "players/show";
     }
 
     @PostMapping

@@ -1,0 +1,41 @@
+[EL Fine]: server: 2018-12-05 10:04:57.103--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2018-12-05 10:04:57.225--ServerSession(9190301)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.LendHistory] is set to [FIELD].
+[EL Config]: metadata: 2018-12-05 10:04:57.244--ServerSession(9190301)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field movie] is being defaulted to: class sample.yourDiary.entity.Movie.
+[EL Config]: metadata: 2018-12-05 10:04:57.245--ServerSession(9190301)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field lendUser] is being defaulted to: class sample.yourDiary.entity.User.
+[EL Config]: metadata: 2018-12-05 10:04:57.245--ServerSession(9190301)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.User] is set to [FIELD].
+[EL Config]: metadata: 2018-12-05 10:04:57.249--ServerSession(9190301)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourDiary.entity.LendHistory.
+[EL Config]: metadata: 2018-12-05 10:04:57.249--ServerSession(9190301)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.Movie] is set to [FIELD].
+[EL Config]: metadata: 2018-12-05 10:04:57.25--ServerSession(9190301)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourDiary.entity.LendHistory.
+[EL Config]: metadata: 2018-12-05 10:04:57.25--ServerSession(9190301)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.LendHistory] is being defaulted to: LendHistory.
+[EL Config]: metadata: 2018-12-05 10:04:57.265--ServerSession(9190301)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-05 10:04:57.265--ServerSession(9190301)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.User] is being defaulted to: User.
+[EL Config]: metadata: 2018-12-05 10:04:57.265--ServerSession(9190301)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.Movie] is being defaulted to: Movie.
+[EL Config]: metadata: 2018-12-05 10:04:57.266--ServerSession(9190301)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Info]: 2018-12-05 10:04:57.689--ServerSession(9190301)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.0.v20170811-d680af5
+[EL Fine]: connection: 2018-12-05 10:04:57.822--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.oracle.Oracle11Platform
+[EL Config]: connection: 2018-12-05 10:04:57.836--ServerSession(9190301)--Connection(758572926)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=>Oracle11Platform
+	user name=> "Yamaton"
+	datasource URL=> "jdbc:oracle:thin:@localhost:1521:XE"
+))
+[EL Config]: connection: 2018-12-05 10:04:57.853--ServerSession(9190301)--Connection(1640612861)--Thread(Thread[main,5,main])--Connected: jdbc:oracle:thin:@localhost:1521:XE
+	User: YAMATON
+	Database: Oracle  Version: Oracle Database 11g Release 11.1.0.0.0 - Production
+	Driver: Oracle JDBC driver  Version: 10.2.0.5.0
+[EL Info]: connection: 2018-12-05 10:04:57.886--ServerSession(9190301)--Thread(Thread[main,5,main])--/file:/C:/Users/NE08605/Downloads/pleiades-4.8.0-ultimate_20180924/pleiades/workspace/YourDiary/build/classes/_YourDiary login successful
+[EL Fine]: sql: 2018-12-05 10:04:57.961--ServerSession(9190301)--Connection(1640612861)--Thread(Thread[main,5,main])--SELECT * FROM SEQUENCE WHERE SEQ_NAME = 'SEQ_GEN_TABLE'
+[EL Fine]: sql: 2018-12-05 10:04:58.138--ServerSession(9190301)--Connection(1640612861)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME FROM USERTBL ORDER BY ACCOUNT ASC
+[EL Fine]: sql: 2018-12-05 10:04:58.153--ClientSession(1296928719)--Connection(1640612861)--Thread(Thread[main,5,main])--UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ?
+	bind => [50, SEQ_GEN_TABLE]
+[EL Fine]: sql: 2018-12-05 10:04:58.153--ClientSession(1296928719)--Connection(1640612861)--Thread(Thread[main,5,main])--SELECT SEQ_COUNT FROM SEQUENCE WHERE SEQ_NAME = ?
+	bind => [SEQ_GEN_TABLE]
+[EL Fine]: sql: 2018-12-05 10:04:58.216--ClientSession(1296928719)--Connection(1640612861)--Thread(Thread[main,5,main])--INSERT INTO USERTBL (ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME) VALUES (?, ?, ?, ?, ?, ?, ?)
+	bind => [101, user1, null, false, user1name, null, null]
+[EL Fine]: sql: 2018-12-05 10:04:58.221--ClientSession(1296928719)--Thread(Thread[main,5,main])--SELECT 1 FROM DUAL
+[EL Warning]: 2018-12-05 10:04:58.222--UnitOfWork(1522119751)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLException: ORA-00001: 一意制約(YAMATON.SYS_C007246)に反しています
+
+Error Code: 1
+Call: INSERT INTO USERTBL (ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME) VALUES (?, ?, ?, ?, ?, ?, ?)
+	bind => [101, user1, null, false, user1name, null, null]
+Query: InsertObjectQuery(sample.yourDiary.entity.User@33a2499c)

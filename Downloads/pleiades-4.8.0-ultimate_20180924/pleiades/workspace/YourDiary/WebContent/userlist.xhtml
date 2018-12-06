@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+<h2>ユーザー編集</h2>
+<h:form id="addUserForm">
+	<p:growl showDetail="true" autoUpdate="true"/>
+
+	<p:panelGrid columns="2" >
+		<p:outputLabel value="アカウント:" />
+		<p:inputText id="account" value="#{editUserView.account}"
+			required="true" requiredMessage="アカウント名は必須です。"/>
+
+		<p:outputLabel value="名前:" />
+		<p:inputText id="name" value="#{editUserView.name}"
+			required="true" requiredMessage="名前は必須です。"/>
+
+		<p:outputLabel value="パスワード:" />
+		<p:password value="#{editUserView.password}" />
+
+		<p:outputLabel value="E-mail:" />
+		<p:inputText id="email" value="#{editUserView.email}" />
+	</p:panelGrid>
+	<p:messages />
+	<p:commandButton value="ユーザの追加" action="#{editUserView.addUser}"
+		update=":userListForm" />
+</h:form>
+<br />
+<br />
+<h2>ユーザー一覧</h2>
+<h:form id="userListForm">
+	<p:dataTable id="userList" var="user" value="#{editUserView.users}"
+		paginator="true" paginatorPosition="top"
+		rows="10" rowsPerPageTemplate="5,10,15,30,50"
+		sortMode="multiple"
+		>
+		<p:column sortBy="#{user.account}" filterBy="#{user.account}" filterMatchMode="contains">
+			<f:facet name="header">
+				<p:outputLabel value="アカウント" />
+			</f:facet>
+			<p:outputLabel value="#{user.account}" />
+		</p:column>
+
+		<p:column sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">
+			<f:facet name="header">
+				<p:outputLabel value="名前" />
+			</f:facet>
+			<p:outputLabel value="#{user.name}" />
+		</p:column>
+
+		<p:column sortBy="#{user.email}" filterBy="#{user.email}" filterMatchMode="contains">
+			<f:facet name="header">
+				<p:outputLabel value="e-mail" />
+			</f:facet>
+			<p:outputLabel value="#{user.email}" />
+		</p:column>
+	</p:dataTable>
+</h:form>
+</html>

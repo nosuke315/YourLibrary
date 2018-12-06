@@ -1,0 +1,25 @@
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<h:form id="menuber">
+		<p:menuber>
+			<p:submenu label="個人設定" icon="ui-icon-wrench">
+				<p:menuitem value="テーマ設定" icon="ui-icon-refresh" action="/changeTheme.xhtml">
+				</p:menuitem>
+			</p:submenu>
+			<p:submenu label="リンク" icon-ui-extlink>
+				<p:menuitem value="Google" url="http://google.co.jp">
+				</p:menuitem>
+				<p:menuitem value="Yahoo Japan" url="http://yahoo.co.jp">
+				</p:menuitem>
+			</p:submenu>
+			<p:submenu label="ログアウト" icon="ui-icon-close" style="float:right">
+				<p:menuitem value="ログアウト" action="#{sessionInfo.logout}">
+				</p:menuitem>
+			</p:submenu>
+		</p:menuber>
+	</h:form>
+</html>

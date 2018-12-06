@@ -17,14 +17,15 @@ public class UserManager {
 		EntityManager em = emf.createEntityManager();
 		return em;
 	}
-	public static User createUser(String account, String name) {
+	public static User createUser( String account, String name)
+	{
 		User user = new User();
 		user.setAccount(account);
 		user.setName(name);
 		EntityManager em = getEm();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		em.persist(user);
+		em.persist(user);//newしたオブジェクトの永続化
 		tx.commit();
 		em.close();
 		return user;
@@ -45,7 +46,7 @@ public class UserManager {
 	}
 	public static User findByAccount(String account) {
 		EntityManager em = getEm();
-		TypedQuery<User> q = em.createQuery("select u from User u order by u.account=:account",User.class);
+		TypedQuery<User> q = em.createQuery("select u from User u where u.account=:account",User.class);
 		q.setParameter("account", account);
 		List<User> result = q.getResultList();
 		em.close();
@@ -55,7 +56,7 @@ public class UserManager {
 	}
 	public static User login(String account, String password) {
 		EntityManager em = getEm();
-		TypedQuery<User> q = em.createQuery("select u from User u where u.account =: account and u.password =: password",User.class);
+		TypedQuery<User> q = em.createQuery("select u from User u where u.account =:account and u.password =:password",User.class);
 		q.setParameter("account", account);
 		q.setParameter("password",password);
 		List<User> result = q.getResultList();

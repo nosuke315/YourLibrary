@@ -6,10 +6,14 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import sample.yourDiary.entity.User;
 import sample.yourDiary.logic.UserManager;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class UserManagerTest {
 	@Before

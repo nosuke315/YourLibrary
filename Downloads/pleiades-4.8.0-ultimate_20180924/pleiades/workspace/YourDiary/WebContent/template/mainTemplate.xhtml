@@ -9,18 +9,12 @@
 	>
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>Your Diary</title>
 	</h:head>
 		<h:body>
-			<table cellspecing="10px">
+			<table cellspacing="10px">
 				<tr>
-					<td id="top" colspan="3">
-					<ui:insert name="top">
-						<ui:include src=".top.xhtml" />
-					</ui:insert>
-				</td>
-			</tr>
-			<tr>
-				<td id="left" valign="top">
+					<td id="left" valign="top">
 					<ui:insert name="left">
 						<ui:include src="./left.xhtml"/>
 					</ui:insert>
@@ -32,7 +26,14 @@
 				</td>
 			</tr>
 				<tr>
-				<td id="bottom colspan="3">
+				<td id="top" colspan="3">
+					<ui:insert name="top">
+						<ui:include src="./top.xhtml" />
+					</ui:insert>
+				</td>
+			</tr>
+			<tr>
+				<td id="bottom" colspan="3">
 					<ui:insert name="bottom">
 						<ui:include src="./bottom.xhtml"/>
 					</ui:insert>

@@ -6,49 +6,54 @@
 	xmlns:p="http://primefaces.org/ui">
 	<h2>ユーザー編集</h2>
 <h:form id="addUserForm">
-	<h:panelGrid columns="2">
-		<h:outputText value="アカウント:" />
-		<h:inputText value="#{editUserView.account}" />
+	<p:growl showDetail="true" autoUpdate="true"/>
+	<p:panelGrid columns="2">
+		<p:outputLabel value="アカウント:" />
+		<p:inputText id="account" value="#{editUserView.account}"
+			reqyured="true" requiredMessage="アカウント名は必須です"/>
 
-		<h:outputText value="名前:" />
-		<h:inputText value="#{editUserView.name}" />
+		<p:outputLabel value="名前:" />
+		<p:inputText id="name" value="#{editUserView.name}"
+			required="true" requiredMessage="名前は必須です"/>
 
-		<h:outputText value="パスワード:" />
-		<h:inputText value="#{editUserView.password}" />
+		<p:outputLabel value="パスワード:" />
+		<p:password value="#{editUserView.password}" />
 
-		<h:outputText value="E-mail:" />
-		<h:inputText value="#{editUserView.email}" />
-
-		<h:commandButton value="ユーザの追加" action="#{editUserView.addUser}" />
-	</h:panelGrid>
-
-	<h:messages />
+		<p:outputLabel value="E-mail:" />
+		<p:inputText id="email" value="#{editUserView.email}" />
+	</p:panelGrid>
+	<p:messages />
+	<p:commandButton value="ユーザの追加" action="#{editUserView.addUser}"
+		update=":userListForm"/>
 </h:form>
 <br />
 <br />
 <h2>ユーザー一覧</h2>
 <h:form id="userListForm">
-	<h:dataTable id="userList" var="user" value="#{editUserView.users}">
-		<h:column>
+	<p:dataTable id="userList" var="user" value="#{editUserView.users}"
+	paginator ="true" paginatorPosition="top"
+	rows="10" rowsPerPageTemplate="5,10,15,30,50"
+	sortode="multiple">
+		<p:column sortBy="#{user.account}" filterBy="#{user.account}" filterMatchMode="contains">
 			<f:facet name="header">
-				<h:outputText value="アカウント" />
+				<p:outputLabel value="アカウント" />
 			</f:facet>
-			<h:outputText value="#{user.account}" />
-		</h:column>
+			<p:outputLabel value="#{user.account}" />
+		</p:column>
 
-		<h:column>
+		<p:column sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">
 			<f:facet name="header">
-				<h:outputText value="名前" />
+				<p:outputLabel value="名前" />
 			</f:facet>
-			<h:outputText value="#{user.name}" />
-		</h:column>
+			<p:outputLabel value="#{user.name}" />
+		</p:column>
 
-		<h:column>
+		<p:column sortBy="#{user.email}" filterBy="#{user.email}" filterMatchMode="contains">
 			<f:facet name="header">
-				<h:outputText value="e-mail" />
+				<p:outputLabel value="e-mail" />
 			</f:facet>
-			<h:outputText value="#{user.email}" />
-		</h:column>
-	</h:dataTable>
+			<p:outputLabel value="#{user.email}" />
+		</p:column>
+	</p:dataTable>
 </h:form>
 </html>

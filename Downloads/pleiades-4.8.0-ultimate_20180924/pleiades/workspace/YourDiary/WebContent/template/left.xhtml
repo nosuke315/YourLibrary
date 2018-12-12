@@ -1,11 +1,11 @@
-<html
-	xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	<h:from id="panelMenus">
-		<p:panelMenu style="width:300px">
+
+<h:form id="panelMenus">
+	<p:panelMenu style="width:300px">
 		<p:submenu label="映画" icon="ui-icon-note">
 			<p:menuitem value="検索" action="/searchMovie.xhtml" icon="ui-icon-search" />
 			<p:menuitem value="レンタル履歴" action="/lendHistory.xhtml"
@@ -35,5 +35,6 @@
 			</p:submenu>
 		</p:submenu>
 	</p:panelMenu>
-	</h:from>
+</h:form>
+
 </html>

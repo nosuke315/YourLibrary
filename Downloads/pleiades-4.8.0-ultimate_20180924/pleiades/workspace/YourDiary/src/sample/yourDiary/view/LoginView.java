@@ -3,6 +3,8 @@ package sample.yourDiary.view;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import lombok.Getter;
+import lombok.Setter;
 import sample.yourDiary.entity.User;
 import sample.yourDiary.logic.UserManager;
 
@@ -10,21 +12,10 @@ import sample.yourDiary.logic.UserManager;
 @ManagedBean(name="loginView")
 @ViewScoped
 public class LoginView {
+	@Getter @Setter
 	private String account;
+	@Getter @Setter
 	private String password;
-
-	public String getAccount() {
-		return account;
-	}
-	public void setAccount(String account) {
-		this.account = account;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public String login() {
 		User loginUser = UserManager.login(account, password);

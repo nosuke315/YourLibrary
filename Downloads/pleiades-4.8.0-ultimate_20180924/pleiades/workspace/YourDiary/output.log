@@ -1,56 +1,76 @@
-[EL Fine]: server: 2018-12-06 13:26:58.238--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
-[EL Config]: metadata: 2018-12-06 13:26:58.379--ServerSession(2129144075)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.LendHistory] is set to [FIELD].
-[EL Config]: metadata: 2018-12-06 13:26:58.398--ServerSession(2129144075)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field movie] is being defaulted to: class sample.yourDiary.entity.Movie.
-[EL Config]: metadata: 2018-12-06 13:26:58.399--ServerSession(2129144075)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field lendUser] is being defaulted to: class sample.yourDiary.entity.User.
-[EL Config]: metadata: 2018-12-06 13:26:58.399--ServerSession(2129144075)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.User] is set to [FIELD].
-[EL Config]: metadata: 2018-12-06 13:26:58.403--ServerSession(2129144075)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourDiary.entity.LendHistory.
-[EL Config]: metadata: 2018-12-06 13:26:58.403--ServerSession(2129144075)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.Movie] is set to [FIELD].
-[EL Config]: metadata: 2018-12-06 13:26:58.403--ServerSession(2129144075)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourDiary.entity.LendHistory.
-[EL Config]: metadata: 2018-12-06 13:26:58.404--ServerSession(2129144075)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.LendHistory] is being defaulted to: LendHistory.
-[EL Config]: metadata: 2018-12-06 13:26:58.42--ServerSession(2129144075)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2018-12-06 13:26:58.42--ServerSession(2129144075)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.User] is being defaulted to: User.
-[EL Config]: metadata: 2018-12-06 13:26:58.421--ServerSession(2129144075)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.Movie] is being defaulted to: Movie.
-[EL Config]: metadata: 2018-12-06 13:26:58.421--ServerSession(2129144075)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Info]: 2018-12-06 13:26:58.862--ServerSession(2129144075)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.0.v20170811-d680af5
-[EL Fine]: connection: 2018-12-06 13:26:58.996--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.oracle.Oracle11Platform
-[EL Config]: connection: 2018-12-06 13:26:59.014--ServerSession(2129144075)--Connection(913065088)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+[EL Fine]: server: 2018-12-12 11:33:08.055--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2018-12-12 11:33:08.179--ServerSession(2129144075)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.LendHistory] is set to [FIELD].
+[EL Config]: metadata: 2018-12-12 11:33:08.195--ServerSession(2129144075)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field movie] is being defaulted to: class sample.yourDiary.entity.Movie.
+[EL Config]: metadata: 2018-12-12 11:33:08.195--ServerSession(2129144075)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field lendUser] is being defaulted to: class sample.yourDiary.entity.User.
+[EL Config]: metadata: 2018-12-12 11:33:08.195--ServerSession(2129144075)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.User] is set to [FIELD].
+[EL Config]: metadata: 2018-12-12 11:33:08.195--ServerSession(2129144075)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourDiary.entity.LendHistory.
+[EL Config]: metadata: 2018-12-12 11:33:08.195--ServerSession(2129144075)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourDiary.entity.Movie] is set to [FIELD].
+[EL Config]: metadata: 2018-12-12 11:33:08.195--ServerSession(2129144075)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourDiary.entity.LendHistory.
+[EL Config]: metadata: 2018-12-12 11:33:08.195--ServerSession(2129144075)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.LendHistory] is being defaulted to: LendHistory.
+[EL Config]: metadata: 2018-12-12 11:33:08.211--ServerSession(2129144075)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-12 11:33:08.211--ServerSession(2129144075)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.User] is being defaulted to: User.
+[EL Config]: metadata: 2018-12-12 11:33:08.211--ServerSession(2129144075)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourDiary.entity.Movie] is being defaulted to: Movie.
+[EL Config]: metadata: 2018-12-12 11:33:08.211--ServerSession(2129144075)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Info]: 2018-12-12 11:33:08.659--ServerSession(2129144075)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.0.v20170811-d680af5
+[EL Fine]: connection: 2018-12-12 11:33:08.784--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.oracle.Oracle11Platform
+[EL Config]: connection: 2018-12-12 11:33:08.8--ServerSession(2129144075)--Connection(913065088)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
 	platform=>Oracle11Platform
 	user name=> "Yamaton"
 	datasource URL=> "jdbc:oracle:thin:@localhost:1521:XE"
 ))
-[EL Config]: connection: 2018-12-06 13:26:59.031--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--Connected: jdbc:oracle:thin:@localhost:1521:XE
+[EL Config]: connection: 2018-12-12 11:33:08.815--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--Connected: jdbc:oracle:thin:@localhost:1521:XE
 	User: YAMATON
 	Database: Oracle  Version: Oracle Database 11g Release 11.1.0.0.0 - Production
 	Driver: Oracle JDBC driver  Version: 10.2.0.5.0
-[EL Info]: connection: 2018-12-06 13:26:59.066--ServerSession(2129144075)--Thread(Thread[main,5,main])--/file:/C:/Users/NE08605/Downloads/pleiades-4.8.0-ultimate_20180924/pleiades/workspace/YourDiary/build/classes/_YourDiary login successful
-[EL Fine]: sql: 2018-12-06 13:26:59.147--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT * FROM SEQUENCE WHERE SEQ_NAME = 'SEQ_GEN_TABLE'
-[EL Fine]: sql: 2018-12-06 13:26:59.358--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE ORDER BY TITLE ASC
-[EL Fine]: sql: 2018-12-06 13:26:59.374--ClientSession(80756779)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ?
+[EL Info]: connection: 2018-12-12 11:33:08.847--ServerSession(2129144075)--Thread(Thread[main,5,main])--/file:/C:/Users/NE08605/git/yourdiary/Downloads/pleiades-4.8.0-ultimate_20180924/pleiades/workspace/YourDiary/build/classes/_YourDiary login successful
+[EL Fine]: sql: 2018-12-12 11:33:08.94--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT * FROM SEQUENCE WHERE SEQ_NAME = 'SEQ_GEN_TABLE'
+[EL Fine]: sql: 2018-12-12 11:33:09.112--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE ORDER BY TITLE ASC
+[EL Fine]: sql: 2018-12-12 11:33:09.13--ClientSession(80756779)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ?
 	bind => [50, SEQ_GEN_TABLE]
-[EL Fine]: sql: 2018-12-06 13:26:59.375--ClientSession(80756779)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT SEQ_COUNT FROM SEQUENCE WHERE SEQ_NAME = ?
+[EL Fine]: sql: 2018-12-12 11:33:09.13--ClientSession(80756779)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT SEQ_COUNT FROM SEQUENCE WHERE SEQ_NAME = ?
 	bind => [SEQ_GEN_TABLE]
-[EL Fine]: sql: 2018-12-06 13:26:59.451--ClientSession(80756779)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO MOVIE (ID, CATEGORY, IS_LENT, OUTLINE, TITLE) VALUES (?, ?, ?, ?, ?)
-	bind => [1301, null, false, null, movie1title]
-[EL Fine]: sql: 2018-12-06 13:26:59.479--ClientSession(1736458419)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE MOVIE SET CATEGORY = ?, IS_LENT = ?, OUTLINE = ? WHERE (ID = ?)
-	bind => [movie1category, true, movie1outline, 1301]
-[EL Fine]: sql: 2018-12-06 13:26:59.494--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE WHERE (TITLE = ?)
+[EL Fine]: sql: 2018-12-12 11:33:09.209--ClientSession(80756779)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO MOVIE (ID, CATEGORY, IS_LENT, OUTLINE, TITLE) VALUES (?, ?, ?, ?, ?)
+	bind => [6251, null, false, null, movie1title]
+[EL Fine]: sql: 2018-12-12 11:33:09.224--ClientSession(1736458419)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE MOVIE SET CATEGORY = ?, IS_LENT = ?, OUTLINE = ? WHERE (ID = ?)
+	bind => [movie1category, true, movie1outline, 6251]
+[EL Fine]: sql: 2018-12-12 11:33:09.24--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE WHERE (TITLE = ?)
 	bind => [movie1title]
-[EL Fine]: sql: 2018-12-06 13:26:59.502--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE ORDER BY TITLE ASC
-[EL Fine]: sql: 2018-12-06 13:26:59.511--ClientSession(1337655323)--Connection(746280996)--Thread(Thread[main,5,main])--DELETE FROM MOVIE WHERE (ID = ?)
-	bind => [1301]
-[EL Fine]: sql: 2018-12-06 13:26:59.52--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE WHERE (TITLE = ?)
+[EL Fine]: sql: 2018-12-12 11:33:09.255--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE ORDER BY TITLE ASC
+[EL Fine]: sql: 2018-12-12 11:33:09.255--ClientSession(1337655323)--Connection(746280996)--Thread(Thread[main,5,main])--DELETE FROM MOVIE WHERE (ID = ?)
+	bind => [6251]
+[EL Fine]: sql: 2018-12-12 11:33:09.271--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE WHERE (TITLE = ?)
 	bind => [movie1title]
-[EL Fine]: sql: 2018-12-06 13:26:59.528--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE ORDER BY TITLE ASC
-[EL Fine]: sql: 2018-12-06 13:26:59.538--ClientSession(670283478)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO MOVIE (ID, CATEGORY, IS_LENT, OUTLINE, TITLE) VALUES (?, ?, ?, ?, ?)
-	bind => [1302, null, false, null, movie2title]
-[EL Fine]: sql: 2018-12-06 13:26:59.552--ClientSession(1733947537)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO USERTBL (ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME) VALUES (?, ?, ?, ?, ?, ?, ?)
-	bind => [1303, user2, null, false, user2, null, null]
-[EL Fine]: sql: 2018-12-06 13:26:59.562--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT t1.ID, t1.DUE_DATE, t1.LEND_DATE, t1.RETURN_DATE, t1.REVIEW, t1.STAR_RATTING, t1.LENDUSER_ID, t1.MOVIE_ID FROM MOVIE t0, LEND_HISTORY t1 WHERE (t0.ID = t1.MOVIE_ID) ORDER BY t0.TITLE ASC
-[EL Fine]: sql: 2018-12-06 13:26:59.593--ClientSession(2124731287)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE MOVIE SET IS_LENT = ? WHERE (ID = ?)
-	bind => [true, 1302]
-[EL Fine]: sql: 2018-12-06 13:26:59.594--ClientSession(2124731287)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO LEND_HISTORY (ID, DUE_DATE, LEND_DATE, RETURN_DATE, REVIEW, STAR_RATTING, LENDUSER_ID, MOVIE_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-	bind => [1304, null, 2018-12-06, null, null, 0.0, null, null]
-[EL Fine]: sql: 2018-12-06 13:26:59.605--ClientSession(278879704)--Connection(746280996)--Thread(Thread[main,5,main])--DELETE FROM MOVIE WHERE (ID = ?)
-	bind => [1302]
-[EL Fine]: sql: 2018-12-06 13:26:59.615--ClientSession(200744172)--Connection(746280996)--Thread(Thread[main,5,main])--DELETE FROM USERTBL WHERE (ID = ?)
-	bind => [1303]
+[EL Fine]: sql: 2018-12-12 11:33:09.271--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT ID, CATEGORY, IS_LENT, OUTLINE, TITLE FROM MOVIE ORDER BY TITLE ASC
+[EL Fine]: sql: 2018-12-12 11:33:09.287--ClientSession(670283478)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO MOVIE (ID, CATEGORY, IS_LENT, OUTLINE, TITLE) VALUES (?, ?, ?, ?, ?)
+	bind => [6252, null, false, null, movie2title]
+[EL Fine]: sql: 2018-12-12 11:33:09.302--ClientSession(1733947537)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO USERTBL (ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME) VALUES (?, ?, ?, ?, ?, ?, ?)
+	bind => [6253, user2, null, false, user2, null, null]
+[EL Fine]: sql: 2018-12-12 11:33:09.302--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT t1.ID, t1.DUE_DATE, t1.LEND_DATE, t1.RETURN_DATE, t1.REVIEW, t1.STAR_RATTING, t1.LENDUSER_ID, t1.MOVIE_ID FROM MOVIE t0, LEND_HISTORY t1 WHERE (t0.ID = t1.MOVIE_ID) ORDER BY t0.TITLE ASC
+[EL Fine]: sql: 2018-12-12 11:33:09.333--ClientSession(2124731287)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE MOVIE SET IS_LENT = ? WHERE (ID = ?)
+	bind => [true, 6252]
+[EL Fine]: sql: 2018-12-12 11:33:09.333--ClientSession(2124731287)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO LEND_HISTORY (ID, DUE_DATE, LEND_DATE, RETURN_DATE, REVIEW, STAR_RATTING, LENDUSER_ID, MOVIE_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [6254, null, 2018-12-12, null, null, 0.0, 6253, 6252]
+[EL Fine]: sql: 2018-12-12 11:33:09.349--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT t1.ID, t1.DUE_DATE, t1.LEND_DATE, t1.RETURN_DATE, t1.REVIEW, t1.STAR_RATTING, t1.LENDUSER_ID, t1.MOVIE_ID FROM MOVIE t0, LEND_HISTORY t1 WHERE (t0.ID = t1.MOVIE_ID) ORDER BY t0.TITLE ASC
+[EL Fine]: sql: 2018-12-12 11:33:09.349--ClientSession(818785904)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE LEND_HISTORY SET DUE_DATE = ?, REVIEW = ?, STAR_RATTING = ? WHERE (ID = ?)
+	bind => [2018-12-12, nice, 5.0, 6254]
+[EL Fine]: sql: 2018-12-12 11:33:09.38--ClientSession(238467882)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE MOVIE SET IS_LENT = ? WHERE (ID = ?)
+	bind => [false, 6252]
+[EL Fine]: sql: 2018-12-12 11:33:09.38--ClientSession(238467882)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE LEND_HISTORY SET RETURN_DATE = ? WHERE (ID = ?)
+	bind => [2018-12-12 20:33:09.38, 6254]
+[EL Fine]: sql: 2018-12-12 11:33:09.396--ClientSession(1731967318)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE MOVIE SET IS_LENT = ? WHERE (ID = ?)
+	bind => [true, 6252]
+[EL Fine]: sql: 2018-12-12 11:33:09.396--ClientSession(1731967318)--Connection(746280996)--Thread(Thread[main,5,main])--INSERT INTO LEND_HISTORY (ID, DUE_DATE, LEND_DATE, RETURN_DATE, REVIEW, STAR_RATTING, LENDUSER_ID, MOVIE_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [6255, null, 2018-12-12, null, null, 0.0, 6253, 6252]
+[EL Fine]: sql: 2018-12-12 11:33:09.412--ClientSession(13117403)--Connection(746280996)--Thread(Thread[main,5,main])--DELETE FROM LEND_HISTORY WHERE (ID = ?)
+	bind => [6254]
+[EL Fine]: sql: 2018-12-12 11:33:09.412--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT t1.ID, t1.DUE_DATE, t1.LEND_DATE, t1.RETURN_DATE, t1.REVIEW, t1.STAR_RATTING, t1.LENDUSER_ID, t1.MOVIE_ID FROM MOVIE t0, LEND_HISTORY t1 WHERE (t0.ID = t1.MOVIE_ID) ORDER BY t0.TITLE ASC
+[EL Fine]: sql: 2018-12-12 11:33:09.427--ClientSession(435803541)--Connection(746280996)--Thread(Thread[main,5,main])--UPDATE LEND_HISTORY SET LENDUSER_ID = ? WHERE (ID = ?)
+	bind => [null, 6255]
+[EL Fine]: sql: 2018-12-12 11:33:09.427--ClientSession(435803541)--Connection(746280996)--Thread(Thread[main,5,main])--DELETE FROM USERTBL WHERE (ID = ?)
+	bind => [6253]
+[EL Fine]: sql: 2018-12-12 11:33:09.427--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT t1.ID, t1.DUE_DATE, t1.LEND_DATE, t1.RETURN_DATE, t1.REVIEW, t1.STAR_RATTING, t1.LENDUSER_ID, t1.MOVIE_ID FROM MOVIE t0, LEND_HISTORY t1 WHERE (t0.ID = t1.MOVIE_ID) ORDER BY t0.TITLE ASC
+[EL Fine]: sql: 2018-12-12 11:33:09.443--ClientSession(1400582895)--Connection(746280996)--Thread(Thread[main,5,main])--DELETE FROM LEND_HISTORY WHERE (ID = ?)
+	bind => [6255]
+[EL Fine]: sql: 2018-12-12 11:33:09.443--ClientSession(1400582895)--Connection(746280996)--Thread(Thread[main,5,main])--DELETE FROM MOVIE WHERE (ID = ?)
+	bind => [6252]
+[EL Fine]: sql: 2018-12-12 11:33:09.443--ServerSession(2129144075)--Connection(746280996)--Thread(Thread[main,5,main])--SELECT t1.ID, t1.DUE_DATE, t1.LEND_DATE, t1.RETURN_DATE, t1.REVIEW, t1.STAR_RATTING, t1.LENDUSER_ID, t1.MOVIE_ID FROM MOVIE t0, LEND_HISTORY t1 WHERE (t0.ID = t1.MOVIE_ID) ORDER BY t0.TITLE ASC

@@ -70,6 +70,7 @@ public class Movie {
 	}
 
 	public void addLendHistory(LendHistory history) {
+		lendHistories.add(history);
 	}
 
 	public String getCategory() {

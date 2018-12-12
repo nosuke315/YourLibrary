@@ -99,6 +99,7 @@ public class User {
 	}
 
 	public void addLendHistory(LendHistory history) {
+		lendHistories.add(history);
 	}
 
 }

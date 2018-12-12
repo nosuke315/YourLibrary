@@ -95,6 +95,8 @@ public class MovieManager {
 		EntityManager em = getEm();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
+		history.setMovie(movie);
+		history.setLendUser(user);
 		em.persist(history);
 		if(!em.contains(movie))
 			movie = em.merge(movie);

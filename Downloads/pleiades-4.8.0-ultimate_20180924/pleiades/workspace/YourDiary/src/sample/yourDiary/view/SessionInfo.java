@@ -40,4 +40,10 @@ public class SessionInfo implements Serializable{
 		}
 		return "/index.xhtml?faces-redirect=true";
 	}
+
+	public String getTheme() {
+		if(loginUser == null || loginUser.getTheme().length() == 0)
+			return "aristo";
+		return loginUser.getTheme();
+	}
 }

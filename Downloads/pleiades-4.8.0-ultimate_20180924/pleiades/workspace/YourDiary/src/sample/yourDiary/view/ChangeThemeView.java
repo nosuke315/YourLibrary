@@ -73,7 +73,7 @@ public class ChangeThemeView {
 		User loginUser = sessionInfo.getLoginUser();
 		loginUser.setTheme(selectedTheme);
 		UserManager.updateUser(loginUser);
-		ViewUtil.AddMessage("テーマ変更", "選択されたテーマを適用しました。");
+		ViewUtil.AddMessage("テーマ変更", "選択されたテーマを適用しました");
 		return "success";
 	}
 }

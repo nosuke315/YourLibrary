@@ -43,7 +43,7 @@ public class SessionInfo implements Serializable{
 
 	public String getTheme()
 	{
-		if( loginUser == null || loginUser.getTheme().length() == 0 )
+		if( loginUser == null || loginUser.getTheme() == null )
 			return "aristo";
 		return loginUser.getTheme();
 	}

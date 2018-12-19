@@ -9,7 +9,6 @@ import javax.faces.bean.ViewScoped;
 import sample.yourLibrary.entity.User;
 import sample.yourLibrary.logic.UserManager;
 
-@SuppressWarnings("deprecation")
 @ManagedBean(name="changeThemeView")
 @ViewScoped
 public class ChangeThemeView {

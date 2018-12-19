@@ -25,7 +25,22 @@ public class SearchMovieView {
 	private List<String> enteredCategory;
 	private List<String> enteredOutline;
 
+	public static final String SEARCH_MOVIE_VIEW_MOVIES_IN_CART = "searchMovieView.moviesInCart";
+	private List<Movie> moviesInCart;
+	private Movie selectedMovie;
 
+	public List<Movie> getMoviesInCart() {
+		return moviesInCart;
+	}
+	public void setMoviesInCart(List<Movie> moviesInCart) {
+		this.moviesInCart = moviesInCart;
+	}
+	public Movie getSelectedMovie() {
+		return selectedMovie;
+	}
+	public void setSelectedMovie(Movie selectedMovie) {
+		this.selectedMovie = selectedMovie;
+	}
 	public List<Movie> getMovies() {
 		return movies;
 	}
@@ -74,16 +89,6 @@ public class SearchMovieView {
 		movieModel = new IdEntityListDataModel<Movie>(movies);
 		enteredTitles = MovieManager.getEnteredTitles();
 	}
-/*	public String searchMovie() {
-		if(title == null && id==0 && Category == null)
-			return null;
-		Movie movie = MovieManager.findById(id);
-		movie.getId();
-		movie.getCategory();
-		movie = MovieManager.updateMovie(movie);
-		movies = MovieManager.findAll();
-		return "succes";
-	}*/
 	public List<String> completeTitle(String input)
 	{
 		return enteredTitles
@@ -102,5 +107,38 @@ public class SearchMovieView {
 				.stream()
 				.filter(e -> e.contains(input))
 				.collect(Collectors.toList());
+	}
+	public String addCart()
+	{
+		if( moviesInCart.size() >= 10)
+		{
+			ViewUtil.AddErrorMessage("制限", "カートに入れられるのは10件までです。");
+			return "success";
+		}
+		if( ! moviesInCart.contains(selectedMovie) )
+		{
+			moviesInCart.add(selectedMovie);
+			movies.remove(selectedMovie);
+			movieModel.setWrappedData(movies);
+			selectedMovie = null;
+			isSelected = false;
+		}
+		return "success";
+	}
+
+	//viewCart.xhtmlへの遷移。Flashにカートの中の映画を設定する。
+	public String viewCart()
+	{
+		if( moviesInCart.size() == 0)
+		{
+			ViewUtil.AddErrorMessage("エラー", "カートが空です。");
+			return "success";
+		}
+		ViewUtil.putToFlash(SEARCH_MOVIE_VIEW_MOVIES_IN_CART, moviesInCart);
+		return "/viewCart.xhtml";
+	}
+
+	public String set() {
+		return "searchMovie.xhtml";
 	}
 }

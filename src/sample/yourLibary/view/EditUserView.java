@@ -13,7 +13,6 @@ import org.primefaces.event.ToggleSelectEvent;
 import sample.yourLibrary.entity.User;
 import sample.yourLibrary.logic.UserManager;
 
-@SuppressWarnings("deprecation")
 @ManagedBean(name="editUserView")
 @ViewScoped
 public class EditUserView {

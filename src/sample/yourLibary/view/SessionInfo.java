@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import sample.yourLibrary.entity.User;
 
-@SuppressWarnings("deprecation")
 @ManagedBean(name="sessionInfo")
 @SessionScoped
 public class SessionInfo implements Serializable{

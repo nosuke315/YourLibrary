@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	<h2>ユーザー編集</h2>
 	<h:outputScript>
-	$(document).on("keydown","ui-cell-editor-input input",function(event)){
+	$(document).on("keydown","ui-cell-editor-input input",function(event){
 		if(event.keyCode==13){
 			$(this).closest("tr").find(".ui-row-editor .ui-icon-check").click();
 		}
@@ -101,7 +101,7 @@
 		</p:column>
 
 	</p:dataTable>
-	<p:contextMenu>
+	<p:contextMenu for="userList">
 		<p:menuitem value="Change password" icon="ui-icon-pencil" update="dialog" oncomplete="PF('passwordDialog').show()">
 		<f:setPropertyActionListener value="#{editUserView.selectedUsers[0].password}"
 			target="#{editUserView.newPassword}"/>

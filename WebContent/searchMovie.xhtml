@@ -25,4 +25,53 @@
 		<p:commandButton value="映画の検索"actionListener="#{searchMovieView.searchMovie}"
 			update="movieListForm:movieList"/>
 	</h:from>
+	<h2>検索結果</h2>
+<h:form id="movieListForm" onkeypress="if(event.keyCode == 13){return false;}">
+	<p:commandLink id="addCartLink"
+		value="選択した映画をカートに追加"
+		action="#{searchMovieView.addCart}" update=":movieListForm:movieList :movieListForm:addCartLink :movieListForm:viewCartLink"
+		disabled="#{searchMovieView.isSelected == false}">
+	</p:commandLink>
+	&#160;
+	<p:commandLink id="viewCartLink"
+		value="#{'カートを見る('.concat(searchMovieView.moviesInCart.size()).concat(')')}"
+		action="#{searchMovieView.viewCart}"
+		>
+	</p:commandLink>
+	<br/>
+	<br/>
+	<p:dataTable id="userList" value="#{SearchMovieView.movieModel}" var="user"
+	editable="true" selection="#{SearchMovieView.selectedMovies}"
+	rowKey="#{movie.id}" paginator ="true" paginatorPosition="top"
+	rows="10" rowsPerPageTemplate="5,10,15,30,50"
+	sortMode="multiple" stickyHeader="true">
+	<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+
+		<p:column headerText="タイトル" sortBy="#{movie.title}" filterBy="#{movie.title}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.title}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{movie.title}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="カテゴリ" sortBy="#{movie.category}" filterBy="#{movie.category}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.category}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{movie.category}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="あらすじ" sortBy="#{movie.outline}" filterBy="#{movie.outline}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.outline}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{movie.outline}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column style="width:32px">
+			<p:rowEditor/>
+		</p:column>
+
+	</p:dataTable>
+	</h:form>
 </html>

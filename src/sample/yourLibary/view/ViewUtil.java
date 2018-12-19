@@ -4,6 +4,7 @@ import javax.el.ELContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 
 public class ViewUtil {
 	public static void AddMessage(String summary,String detail) {
@@ -26,5 +27,15 @@ public class ViewUtil {
 		ELContext elContext = FacesContext.getCurrentInstance().getELContext();
 		SessionInfo sessionInfo = (SessionInfo) FacesContext.getCurrentInstance().getApplication().getELResolver().getValue(elContext, null, "sessionInfo");
 		return sessionInfo;
+	}
+	public static void putToFlash( String key, Object obj )
+	{
+		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+		flash.put( key, obj );
+	}
+	public static Object getFromFlash(String key)
+	{
+		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+		return flash.get( key );
 	}
 }

@@ -1,0 +1,129 @@
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<h2>ユーザー編集</h2>
+	<h:outputScript>
+	$(document).on("keydown","ui-cell-editor-input input",function(event)){
+		if(event.keyCode==13){
+			$(this).closest("tr").find(".ui-row-editor .ui-icon-check").click();
+		}
+	});
+	</h:outputScript>
+	<p:growl id="growl" showDetail="true" autoUpdate="true"/>
+<h:form id="addUserForm">
+	<p:panelGrid columns="2">
+		<p:outputLabel value="アカウント:" />
+		<p:inputText id="account" value="#{editUserView.account}"
+			reqyured="true" requiredMessage="アカウント名は必須です"/>
+
+		<p:outputLabel value="名前:" />
+		<p:inputText id="name" value="#{editUserView.name}"
+			required="true" requiredMessage="名前は必須です"/>
+
+		<p:outputLabel value="パスワード:" />
+		<p:password value="#{editUserView.password}" />
+
+		<p:outputLabel value="E-mail:" />
+		<p:inputText id="email" value="#{editUserView.email}" />
+
+		<p:outputLabel value="管理者権限:" />
+		<p:selectBooleanCheckbox id="isAdmin" value="editUserView.isAdmin" style="align:center"/>
+	</p:panelGrid>
+	<p:messages />
+	<p:commandButton value="ユーザの追加" action="#{editUserView.addUser}"
+		update=":userListForm:userList"/>
+</h:form>
+<br />
+<p:separator />
+<br />
+<h2>ユーザー一覧</h2>
+<h:form id="userListForm" onkeypress="if(event.keyCode==13) return false;">
+	<p:commandButton id="removeButton" value="選択したユーザを削除" action="#{editUserView.removeUser}"
+		update="userListForm" disabled="#{empty editUserView.selectedUsers}">
+		<p:confirm header="Confirmation" message="Are you sure you want to delete the selected users?" icon="ui-icon-info"/>
+		<p:confirmDialog global="true" showEffect="explode" hideEffect="slide">
+		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+		<p:commandButton value="oh...I made mistake" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+		</p:confirmDialog>
+	</p:commandButton>
+	<br/><br/>
+	<p:dataTable id="userList" value="#{editUserView.userModel}" var="user"
+	editable="true" selection="#{editUserView.selectedUsers}"
+	rowKey="#{user.id}" paginator ="true" paginatorPosition="top"
+	rows="10" rowsPerPageTemplate="5,10,15,30,50"
+	sortMode="multiple" stickyHeader="true">
+
+		<p:ajax event="contextMenu" update=":userListForm:removeButton" />
+		<p:ajax event="rowSelect" update=":userListForm:removeButton" />
+		<p:ajax event="rowUnselect" update=":userListForm:removeButton" />
+		<p:ajax event="rowSelectCheckbox" update=":userListForm:removeButton" />
+		<p:ajax event="rowUnselectCheckbox" update=":userListForm:removeButton" />
+		<p:ajax event="toggleSelect" update=":userListForm:removeButton" />
+		<p:ajax event="rowEdit" listener="#{editUserView.onRowEdit}" update=":growl"/>
+		<p:ajax event="rowEditCancel" listener="#{editUserView.onRowEditCancel}" update="growl"/>
+
+		<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+
+		<p:column headerText="アカウント" sortBy="#{user.account}" filterBy="#{user.account}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{user.account}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{user.account}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="名前" sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{user.name}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{user.name}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="e-mail" sortBy="#{user.email}" filterBy="#{user.email}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{user.email}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{user.email}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="管理者権限" sortBy="#{user.isAdmin}"
+			filterBy="#{user.isAdmin}" filterMatchMode="exact" style="text-align:center">
+			<p:cellEditor>
+				<f:facet name="output"><p:selectBooleanCheckbox value="#{user.isAdmin}" disabled="true"/></f:facet>
+				<f:facet name="input"><p:selectBooleanCheckbox value="#{user.isAdmin}" /></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column style="width:32px">
+			<p:rowEditor/>
+		</p:column>
+
+	</p:dataTable>
+	<p:contextMenu>
+		<p:menuitem value="Change password" icon="ui-icon-pencil" update="dialog" oncomplete="PF('passwordDialog').show()">
+		<f:setPropertyActionListener value="#{editUserView.selectedUsers[0].password}"
+			target="#{editUserView.newPassword}"/>
+		</p:menuitem>
+	</p:contextMenu>
+</h:form>
+<p:dialog id="dialog" header="password Edit" widgetVar="passwordDialog" model="true"
+	showEffect="fold" hideEffect="explode" resizable="false" dynamic="true">
+	<h:form id="dialogForm">
+		<p:outputPanel id="passwordEdit" style="text-align:center;">
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+					<p:outputLabel value="#{editUserView.selectedUsers[0].name.concat(' password change')}"/>
+				</f:facet>
+				<p:outputLabel value="password"/>
+				<p:password value="#{editUserView.newPassword}" redisplay="true"/>
+				<p:outputLabel value="password to see"/>
+				<p:inputText value="#{editUserView.newPassword}"/>
+			</p:panelGrid>
+			<p:commandButton value="OK" icon="ui-icon-close" action="#{editUserView.updatePassword}" oncomplete="PF('passwordDialog').hide()"/>
+			<p:commandButton value="Cancel" icon="ui-icon-close" oncomplete="PF('passwordDialog').hide()"/>
+		</p:outputPanel>
+	</h:form>
+</p:dialog>
+</html>

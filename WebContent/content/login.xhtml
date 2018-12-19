@@ -1,0 +1,21 @@
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<h2>Your Library</h2>
+<h:form id="loginForm">
+	<h:graphicImage url="./resource/image/top.jpeg"/>
+	<h:panelGrid columns="2">
+		<h:outputText value="アカウント:" />
+		<h:inputText value="#{loginView.account}" />
+
+		<h:outputText value="パスワード:" />
+		<h:inputSecret value="#{loginView.password}" />
+
+		<h:commandButton value="ログイン" action="#{loginView.login}" />
+	</h:panelGrid>
+	<h:messages showDetail="true" style="color:red" />
+</h:form>
+</html>

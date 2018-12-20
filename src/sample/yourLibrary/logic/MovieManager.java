@@ -93,6 +93,28 @@ public class MovieManager {
 		return true;
 	}
 
+	public static int removeMovie(List<Movie> movies) {
+		EntityManager em =getEm();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		int removeCount=0;
+		for(Movie movie:movies) {
+			Movie find = em.find(Movie.class,movie.getId());
+			if(find==null)
+				continue;
+			List<LendHistory> histories = find.getLendHistories();
+			for(LendHistory history:histories) {
+				history.setLendUser(null);//履歴からはユーザーをnullにしてから削除
+				em.merge(history);//履歴の更新
+			}
+			em.remove(find);
+			removeCount++;
+		}
+		tx.commit();
+		em.close();
+		return removeCount;
+	}
+
 	public static LendHistory lendMovie( Movie movie, User user )
 	{
 		LendHistory history = new LendHistory();

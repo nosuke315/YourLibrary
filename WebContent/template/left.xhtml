@@ -7,21 +7,22 @@
 <h:form id="panelMenus">
 	<p:panelMenu style="width:300px">
 		<p:submenu label="映画" icon="ui-icon-note">
-			<p:menuitem value="検索" icon="ui-icon-search" action="#{searchMovie.set}" />
+			<p:menuitem value="検索" icon="ui-icon-search"
+				action="/searchMovieView.xhtml" />
 			<p:menuitem value="レンタル履歴" action="/lendHistory.xhtml"
 				icon="ui-icon-cart" />
 		</p:submenu>
 		<p:submenu label="プロフィール" icon="ui-icon-person">
 			<p:menuitem value="パスワード変更" action="/changePassword.xhtml"
 				icon="ui-icon-heart" />
-			<p:menuitem value="プロフィール変更" action="/changeProfile.xhtml"
-				icon="ui-icon-arrowrefresh-1-w" />
+			<p:menuitem value="プロフィール変更"
+				action="/changeProfile.xhtml" icon="ui-icon-arrowrefresh-1-w" />
 		</p:submenu>
 		<p:submenu label="レビュー" icon="ui-icon-star">
-			<p:menuitem value="映画のレビュー検索" action="/searchReview.xhtml"
-				icon="ui-icon-signal" />
-			<p:menuitem value="映画をレビューする" action="/reviewMovie.xhtml"
-				icon="ui-icon-star" />
+			<p:menuitem value="映画のレビュー検索"
+			action="/searchReview.xhtml" icon="ui-icon-signal" />
+			<p:menuitem value="映画をレビューする"
+			action="/reviewMovie.xhtml" icon="ui-icon-star" />
 		</p:submenu>
 		<p:separator />
 		<p:submenu label="管理">

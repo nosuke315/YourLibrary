@@ -44,7 +44,7 @@
 	<p:commandButton id="removeButton" value="選択したユーザを削除" action="#{editUserView.removeUser}"
 		update="userListForm" disabled="#{empty editUserView.selectedUsers}">
 		<p:confirm header="Confirmation" message="Are you sure you want to delete the selected users?" icon="ui-icon-info"/>
-		<p:confirmDialog global="true" showEffect="explode" hideEffect="slide">
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="slide">
 		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
 		<p:commandButton value="oh...I made mistake" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
 		</p:confirmDialog>
@@ -68,10 +68,10 @@
 		<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
 
 		<p:column headerText="アカウント" sortBy="#{user.account}" filterBy="#{user.account}" filterMatchMode="contains">
-			<p:cellEditor>
+		<p:cellEditor>
 			<f:facet name="output"><p:outputLabel value="#{user.account}"/></f:facet>
 			<f:facet name="input"><p:inputText value="#{user.account}"/></f:facet>
-			</p:cellEditor>
+		</p:cellEditor>
 		</p:column>
 
 		<p:column headerText="名前" sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">

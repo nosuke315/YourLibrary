@@ -5,10 +5,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import org.primefaces.event.RowEditEvent;
 
 import sample.yourLibrary.entity.Movie;
 import sample.yourLibrary.logic.MovieManager;
 
+@ManagedBean(name="searchMovieView")
+@ViewScoped
 public class SearchMovieView {
 	private List<Movie> movies;
 	private IdEntityListDataModel<Movie> movieModel;
@@ -17,6 +23,7 @@ public class SearchMovieView {
 	private String Category;
 	private boolean isLent;
 	private Movie selectedMovies;
+	private List<Movie> SelectedMovies;
 	public boolean isSelected;
 	public boolean getIsSelected() {
 		return isSelected;
@@ -29,6 +36,9 @@ public class SearchMovieView {
 	private List<Movie> moviesInCart;
 	private Movie selectedMovie;
 
+	public void setSelectedMovies(List<Movie> selectedMovies) {
+		SelectedMovies = selectedMovies;
+	}
 	public List<Movie> getMoviesInCart() {
 		return moviesInCart;
 	}
@@ -139,6 +149,25 @@ public class SearchMovieView {
 	}
 
 	public String set() {
-		return "searchMovie.xhtml";
+		return "./content/searchMovie.xhtml";
+	}
+
+	public String removeMovie() {
+		if(SelectedMovies == null || SelectedMovies.isEmpty())
+			return "success";
+		MovieManager.removeMovie(SelectedMovies);
+		movies.removeAll(SelectedMovies);
+		movieModel.setWrappedData(movies);
+		ViewUtil.AddMessage("ユーザの削除",SelectedMovies.size()+"件のユーザーを削除");
+		isSelected = false;
+		return "succes";
+	}
+	public void onRowEdit(RowEditEvent event) {
+		Movie movie=(Movie)event.getObject();
+		MovieManager.updateMovie(movie);
+		ViewUtil.AddMessage("映画の編集", "映画"+ movie.getTitle() + "を更新");
+	}
+	public void onRowEditCancel(RowEditEvent event) {
+		ViewUtil.AddMessage("映画の編集", "映画の編集をキャンセル");
 	}
 }

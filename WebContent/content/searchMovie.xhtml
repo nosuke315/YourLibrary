@@ -26,7 +26,7 @@
 			update="movieListForm:movieList"/>
 	</h:from>
 	<h2>検索結果</h2>
-<h:form id="movieListForm" onkeypress="if(event.keyCode == 13){return false;}">
+	<h:form id="movieListForm" onkeypress="if(event.keyCode == 13){return false;}">
 	<p:commandLink id="addCartLink"
 		value="選択した映画をカートに追加"
 		action="#{searchMovieView.addCart}" update=":movieListForm:movieList :movieListForm:addCartLink :movieListForm:viewCartLink"
@@ -40,7 +40,7 @@
 	</p:commandLink>
 	<br/>
 	<br/>
-	<p:dataTable id="userList" value="#{SearchMovieView.movieModel}" var="user"
+	<p:dataTable id="movieList" value="#{SearchMovieView.movieModel}" var="user"
 	editable="true" selection="#{SearchMovieView.selectedMovies}"
 	rowKey="#{movie.id}" paginator ="true" paginatorPosition="top"
 	rows="10" rowsPerPageTemplate="5,10,15,30,50"

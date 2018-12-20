@@ -9,6 +9,7 @@ import org.primefaces.model.SelectableDataModel;
 import sample.yourLibrary.entity.User;
 
 public class UserListDataModel extends ListDataModel<User> implements SelectableDataModel<User> {
+	@SuppressWarnings("unchecked")
 	@Override
 	public User getRowData(String key) {
 		List<User> users = (List<User>)getWrappedData();

@@ -5,67 +5,51 @@
       xmlns:p="http://primefaces.org/ui"
       >
 <h2>映画編集</h2>
-		<p:growl id="growl" showDetail="true" autoUpdate="true"/>
-	<h:from id="editMovieForm">
-		<p:commandButton id="removeButton" value="選択したユーザを削除" action="#{searchMovieView.removemovie}"
-		update="movieListForm" disabled="#{empty searchMovieView.selectedmovies}">
-		<p:confirm header="Confirmation" message="Are you sure you want to delete the selected users?" icon="ui-icon-info"/>
-		<p:confirmDialog global="true" showEffect="fade" hideEffect="slide">
-		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
-		<p:commandButton value="oh...I made mistake" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
-		</p:confirmDialog>
-	</p:commandButton>
-	<br/><br/>
-	<p:dataTable id="userList" value="#{searchMovieView.movieModel}" var="movie"
-	editable="true" selection="#{searchMovieView.selectedmovies}"
-	rowKey="#{movie.id}" paginator ="true" paginatorPosition="top"
-	rows="10" rowsPerPageTemplate="5,10,15,30,50"
-	sortMode="multiple" stickyHeader="true">
+<h:form id="addMovieForm">
+	<p:growl id="growl" showDetail="true" autoUpdate="true"/>
+	<p:panelGrid columns="2">
+		<p:outputLabel value="タイトル:" />
+		<p:inputText id="title" value="#{editMovieView.title}" required="true" requiredMessage="タイトルを入力してください"/>
 
-		<p:ajax event="contextMenu" update=":movieListForm:removeButton" />
-		<p:ajax event="rowSelect" update=":movieListForm:removeButton" />
-		<p:ajax event="rowUnselect" update=":movieListForm:removeButton" />
-		<p:ajax event="rowSelectCheckbox" update=":movieListForm:removeButton" />
-		<p:ajax event="rowUnselectCheckbox" update=":movieListForm:removeButton" />
-		<p:ajax event="toggleSelect" update=":movieListForm:removeButton" />
-		<p:ajax event="rowEdit" listener="#{editMovieView.onRowEdit}" update=":growl"/>
-		<p:ajax event="rowEditCancel" listener="#{editMovieView.onRowEditCancel}" update="growl"/>
+		<p:outputLabel value="カテゴリ:" />
+		<p:inputText id="category" value="#{editMovieView.category}" required="true" requiredMessage="カテゴリを入力してください" />
 
-		<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+		<p:outputLabel value="あらすじ:" />
+		<p:inputText id="outline" value="#{editMovieView.outline}" />
 
-		<p:column headerText="アカウント" sortBy="#{movie.account}" filterBy="#{movie.account}" filterMatchMode="contains">
-		<p:cellEditor>
-			<f:facet name="output"><p:outputLabel value="#{movie.account}"/></f:facet>
-			<f:facet name="input"><p:inputText value="#{movie.account}"/></f:facet>
-		</p:cellEditor>
+	</p:panelGrid>
+	<p:messages />
+	<p:commandButton value="映画の追加" action ="#{editMovieView.addMovie}" update=":movieListForm"/>
+</h:form>
+<br />
+<br />
+<h2>映画一覧</h2>
+<h:form id="movieListForm">
+	<p:dataTable id="movieList" var="movie" value="#{editMovieView.movies}"
+		paginator="true" paginatorPosition="top"
+		rows="10" rowsPerPageTemplate="5,10,15,30,50"
+		sortMode="multiple"
+		>
+		<p:column sortBy="#{movie.title}" filterBy="#{movie.title}" filterMatchMode="contains">
+			<f:facet name="header">
+				<p:outputLabel value="タイトル" />
+			</f:facet>
+			<p:outputLabel value="#{movie.title}" />
 		</p:column>
 
-		<p:column headerText="名前" sortBy="#{movie.name}" filterBy="#{movie.name}" filterMatchMode="contains">
-			<p:cellEditor>
-			<f:facet name="output"><p:outputLabel value="#{movie.name}"/></f:facet>
-			<f:facet name="input"><p:inputText value="#{movie.name}"/></f:facet>
-			</p:cellEditor>
+		<p:column sortBy="#{movie.category}" filterBy="#{movie.category}" filterMatchMode="contains">
+			<f:facet name="header">
+				<p:outputLabel value="名前" />
+			</f:facet>
+			<p:outputLabel value="#{movie.category}" />
 		</p:column>
 
-		<p:column headerText="e-mail" sortBy="#{movie.email}" filterBy="#{movie.email}" filterMatchMode="contains">
-			<p:cellEditor>
-			<f:facet name="output"><p:outputLabel value="#{movie.email}"/></f:facet>
-			<f:facet name="input"><p:inputText value="#{movie.email}"/></f:facet>
-			</p:cellEditor>
+		<p:column sortBy="#{movie.outline}" filterBy="#{movie.outline}" filterMatchMode="contains">
+			<f:facet name="header">
+				<p:outputLabel value="outline" />
+			</f:facet>
+			<p:outputLabel value="#{movie.outline}" />
 		</p:column>
-
-		<p:column headerText="管理者権限" sortBy="#{movie.isAdmin}"
-			filterBy="#{user.isAdmin}" filterMatchMode="exact" style="text-align:center">
-			<p:cellEditor>
-				<f:facet name="output"><p:selectBooleanCheckbox value="#{movie.isAdmin}" disabled="true"/></f:facet>
-				<f:facet name="input"><p:selectBooleanCheckbox value="#{movie.isAdmin}" /></f:facet>
-			</p:cellEditor>
-		</p:column>
-
-		<p:column style="width:32px">
-			<p:rowEditor/>
-		</p:column>
-
 	</p:dataTable>
-	</h:from>
+</h:form>
 </html>

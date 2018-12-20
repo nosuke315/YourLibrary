@@ -8,26 +8,31 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import org.primefaces.event.RowEditEvent;
-
+import lombok.Getter;
+import lombok.Setter;
 import sample.yourLibrary.entity.Movie;
 import sample.yourLibrary.logic.MovieManager;
 
 @ManagedBean(name="searchMovieView")
 @ViewScoped
 public class SearchMovieView {
+	@Getter @Setter
 	private List<Movie> movies;
+	@Getter @Setter
 	private IdEntityListDataModel<Movie> movieModel;
+	@Getter @Setter
 	private String title;
+	@Getter @Setter
 	private long id;
+	@Getter @Setter
 	private String Category;
+	@Getter @Setter
 	private boolean isLent;
+	@Getter @Setter
 	private Movie selectedMovies;
-	private List<Movie> SelectedMovies;
+	@Getter @Setter
 	public boolean isSelected;
-	public boolean getIsSelected() {
-		return isSelected;
-	}
+
 	private List<String> enteredTitles;
 	private List<String> enteredCategory;
 	private List<String> enteredOutline;
@@ -36,63 +41,6 @@ public class SearchMovieView {
 	private List<Movie> moviesInCart;
 	private Movie selectedMovie;
 
-	public void setSelectedMovies(List<Movie> selectedMovies) {
-		SelectedMovies = selectedMovies;
-	}
-	public List<Movie> getMoviesInCart() {
-		return moviesInCart;
-	}
-	public void setMoviesInCart(List<Movie> moviesInCart) {
-		this.moviesInCart = moviesInCart;
-	}
-	public Movie getSelectedMovie() {
-		return selectedMovie;
-	}
-	public void setSelectedMovie(Movie selectedMovie) {
-		this.selectedMovie = selectedMovie;
-	}
-	public List<Movie> getMovies() {
-		return movies;
-	}
-	public void setMovies(List<Movie> movies) {
-		this.movies = movies;
-	}
-	public IdEntityListDataModel<Movie> getMovieModel() {
-		return movieModel;
-	}
-	public void setMovieModel(IdEntityListDataModel<Movie> movieModel) {
-		this.movieModel = movieModel;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getCategory() {
-		return Category;
-	}
-	public void setCategory(String category) {
-		Category = category;
-	}
-	public boolean isLent() {
-		return isLent;
-	}
-	public void setLent(boolean isLent) {
-		this.isLent = isLent;
-	}
-	public Movie getSelectedMovies() {
-		return selectedMovies;
-	}
-	public void setSelectedMovies(Movie selectedMovies) {
-		this.selectedMovies = selectedMovies;
-	}
 	@PostConstruct
 	public void init() {
 		movies = new ArrayList<Movie>();
@@ -146,28 +94,5 @@ public class SearchMovieView {
 		}
 		ViewUtil.putToFlash(SEARCH_MOVIE_VIEW_MOVIES_IN_CART, moviesInCart);
 		return "/viewCart.xhtml";
-	}
-
-	public String set() {
-		return "./content/searchMovie.xhtml";
-	}
-
-	public String removeMovie() {
-		if(SelectedMovies == null || SelectedMovies.isEmpty())
-			return "success";
-		MovieManager.removeMovie(SelectedMovies);
-		movies.removeAll(SelectedMovies);
-		movieModel.setWrappedData(movies);
-		ViewUtil.AddMessage("ユーザの削除",SelectedMovies.size()+"件のユーザーを削除");
-		isSelected = false;
-		return "succes";
-	}
-	public void onRowEdit(RowEditEvent event) {
-		Movie movie=(Movie)event.getObject();
-		MovieManager.updateMovie(movie);
-		ViewUtil.AddMessage("映画の編集", "映画"+ movie.getTitle() + "を更新");
-	}
-	public void onRowEditCancel(RowEditEvent event) {
-		ViewUtil.AddMessage("映画の編集", "映画の編集をキャンセル");
 	}
 }

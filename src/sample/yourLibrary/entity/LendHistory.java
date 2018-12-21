@@ -38,6 +38,7 @@ public class LendHistory implements IdEntity{
 	@ManyToOne
 	@JoinColumn(name="LENDUSER_ID",referencedColumnName="ID")
 	private User lendUser;
+
 	public long getId() {
 		return id;
 	}

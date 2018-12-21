@@ -5,14 +5,14 @@
       xmlns:p="http://primefaces.org/ui"
       >
 <h2>映画編集</h2>
+<p:growl id="growl" showDetail="true" autoUpdate="true"/>
 <h:form id="addMovieForm">
-	<p:growl id="growl" showDetail="true" autoUpdate="true"/>
 	<p:panelGrid columns="2">
 		<p:outputLabel value="タイトル:" />
 		<p:inputText id="title" value="#{editMovieView.title}" required="true" requiredMessage="タイトルを入力してください"/>
 
 		<p:outputLabel value="カテゴリ:" />
-		<p:inputText id="category" value="#{editMovieView.category}" required="true" requiredMessage="カテゴリを入力してください" />
+		<p:inputText id="category" value="#{editMovieView.category}" required="true" requiredMessage="カテゴリを選択してください" dropdown="true"/>
 
 		<p:outputLabel value="あらすじ:" />
 		<p:inputText id="outline" value="#{editMovieView.outline}" />
@@ -25,11 +25,47 @@
 <br />
 <h2>映画一覧</h2>
 <h:form id="movieListForm">
-	<p:dataTable id="movieList" var="movie" value="#{editMovieView.movies}"
+	<p:commandButton id="removeButton"
+		value="選択した映画を削除" ajax="true"
+		action="#{editMovieView.removeMovie}" update=":movieListForm"
+		disabled="#{false == editUserView.isSelected}">
+	</p:commandButton>
+	<br/>
+	<br/>
+	<p:dataTable id="movieList"
+		var="movie" value="#{editMovieView.movies}"
+		selection="#{editMovieView.selectedMovies}"
+		rowKey="#{movie.id}"
 		paginator="true" paginatorPosition="top"
 		rows="10" rowsPerPageTemplate="5,10,15,30,50"
-		sortMode="multiple"
+		sortMode="multiple" sticy="true"
 		>
+		<p:ajax event="rowSelect"
+			listener="#{editMovieView.handleSelect}"
+			update=":movieListForm:removeButton" />
+		<p:ajax event="rowUnselect"
+			listener="#{editMovieView.handleUnSelect}"
+			update=":movieListForm:removeButton" />
+		<p:ajax event="rowSelectCheckbox"
+			listener="#{editMovieView.handleSelect}"
+			update=":movieListForm:removeButton" />
+		<p:ajax event="rowUnselectCheckbox"
+			listener="#{editMovieView.handleUnSelect}"
+			update=":movieListForm:removeButton" />
+		<p:ajax event="toggleSelect"
+			listener="#{editUMovieView.handleToggleSelect}"
+			update=":movieListForm:removeButton" />
+		<!--  <p:ajax event="contextMenu" update=":movieListForm:removeButton" />
+		<p:ajax event="rowSelect" update=":movieListForm:removeButton" />
+		<p:ajax event="rowUnselect" update=":movieListForm:removeButton" />
+		<p:ajax event="rowSelectCheckbox" update=":movieListForm:removeButton" />
+		<p:ajax event="rowUnselectCheckbox" update=":movieListForm:removeButton" />
+		<p:ajax event="toggleSelect" update=":movieListForm:removeButton" />
+		<p:ajax event="rowEdit" listener="#{editMovieView.onRowEdit}" update=":growl"/>
+		<p:ajax event="rowEditCancel" listener="#{editUMovieView.onRowEditCancel}" update="growl"/>
+		-->
+
+		<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
 		<p:column sortBy="#{movie.title}" filterBy="#{movie.title}" filterMatchMode="contains">
 			<f:facet name="header">
 				<p:outputLabel value="タイトル" />

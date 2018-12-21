@@ -24,7 +24,6 @@ public class EditMovieView {
 	private String category;
 	@Getter @Setter
 	private String outline;
-	private boolean isLent;
 	@Getter @Setter
 	private List<Movie> movies;
 	@Getter @Setter
@@ -44,7 +43,7 @@ public class EditMovieView {
 			return null;
 		Movie movie = MovieManager.createMovie(title);
 		movie.setCategory(category);
-		movie.setLent(isLent);
+		movie.setOutline(outline);
 		movie = MovieManager.updateMovie(movie);
 		movies = MovieManager.findAll();
 		return "succes";

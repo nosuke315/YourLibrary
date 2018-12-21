@@ -33,8 +33,8 @@
 		<p:selectBooleanCheckbox id="isAdmin" value="editUserView.isAdmin" style="align:center"/>
 	</p:panelGrid>
 	<p:messages />
-	<p:commandButton value="ユーザの追加" action="#{editUserView.addUser}"
-		update=":userListForm:userList"/>
+	<p:commandButton value="ユーザの追加" action="#{editUserView.addUser}" update=":userListForm">
+	</p:commandButton>
 </h:form>
 <br />
 <p:separator />
@@ -44,7 +44,7 @@
 	<p:commandButton id="removeButton" value="選択したユーザを削除" action="#{editUserView.removeUser}"
 		update="userListForm" disabled="#{empty editUserView.selectedUsers}">
 		<p:confirm header="Confirmation" message="Are you sure you want to delete the selected users?" icon="ui-icon-info"/>
-		<p:confirmDialog global="true" showEffect="fade" hideEffect="slide">
+		<p:confirmDialog global="true" showEffect="explode" hideEffect="slide">
 		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
 		<p:commandButton value="oh...I made mistake" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
 		</p:confirmDialog>

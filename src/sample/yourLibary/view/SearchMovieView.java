@@ -27,6 +27,8 @@ public class SearchMovieView {
 	@Getter @Setter
 	private String Category;
 	@Getter @Setter
+	private String outline;
+	@Getter @Setter
 	private boolean isLent;
 	@Getter @Setter
 	private Movie selectedMovies;

@@ -104,7 +104,7 @@ public class MovieManager {
 				continue;
 			List<LendHistory> histories = find.getLendHistories();
 			for(LendHistory history:histories) {
-				history.setLendUser(null);//履歴からはユーザーをnullにしてから削除
+				history.setMovie(null);//履歴からはユーザーをnullにしてから削除
 				em.merge(history);//履歴の更新
 			}
 			em.remove(find);

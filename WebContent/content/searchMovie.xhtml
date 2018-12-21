@@ -9,33 +9,33 @@
 	<h:from id="searchMovieForm">
 		<p:panelGrid columns="2">
 			<p:outputLabel value="タイトル:"/>
-			<p:autoComplete id ="title" value="#{searchMovieView.title}"
-				completeMethod="#{searchMovieView.completeTitle}"/>
+			<p:autoComplete id ="title" value="#{SearchMovieView.title}"
+				completeMethod="#{SearchMovieView.completeTitle}"/>
 
 			<p:outputLabel value="カテゴリ:"/>
-			<p:autoComplete id="category" value="#{searchMovieView.category}"
-				completeMethod="#{searchMovieView.completeCategory}"
+			<p:autoComplete id="category" value="#{SearchMovieView.category}"
+				completeMethod="#{SearchMovieView.completeCategory}"
 				dropdown="true"/>
 
 			<p:outputLabel value="あらすじ:"/>
-			<p:autoComplete id="outline" value="#{searchMovieView.outline}"
-				completeMethod="#{searchMovieView.completeOutline}"/>
+			<p:autoComplete id="outline" value="#{SearchMovieView.outline}"
+				completeMethod="#{SearchMovieView.completeOutline}"/>
 		</p:panelGrid>
 		<p:messages />
-		<p:commandButton value="映画の検索"actionListener="#{searchMovieView.searchMovie}"
+		<p:commandButton value="映画の検索" actionListener="#{SearchMovieView.searchMovie}"
 			update="movieListForm:movieList"/>
 	</h:from>
 	<h2>検索結果</h2>
 	<h:form id="movieListForm" onkeypress="if(event.keyCode == 13){return false;}">
 	<p:commandLink id="addCartLink"
 		value="選択した映画をカートに追加"
-		action="#{searchMovieView.addCart}" update=":movieListForm:movieList :movieListForm:addCartLink :movieListForm:viewCartLink"
-		disabled="#{searchMovieView.isSelected == false}">
+		action="#{SearchMovieView.addCart}" update=":movieListForm:movieList :movieListForm:addCartLink :movieListForm:viewCartLink"
+		disabled="#{SearchMovieView.isSelected == false}">
 	</p:commandLink>
 	&#160;
 	<p:commandLink id="viewCartLink"
-		value="#{'カートを見る('.concat(searchMovieView.moviesInCart.size()).concat(')')}"
-		action="#{searchMovieView.viewCart}"
+		value="#{'カートを見る('.concat(SearchMovieView.moviesInCart.size()).concat(')')}"
+		action="#{SearchMovieView.viewCart}"
 		>
 	</p:commandLink>
 	<br/>

@@ -138,4 +138,5 @@ public class EditUserView {
 	public void onRowEditCancel(RowEditEvent event) {
 		ViewUtil.AddMessage("ユーザの編集", "ユーザの編集をキャンセル");
 	}
+
 }

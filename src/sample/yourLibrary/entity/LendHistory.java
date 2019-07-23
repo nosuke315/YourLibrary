@@ -13,8 +13,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="LEND_HISTORY")
+@Setter
+@Getter
 public class LendHistory implements IdEntity{
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
@@ -38,53 +43,5 @@ public class LendHistory implements IdEntity{
 	@ManyToOne
 	@JoinColumn(name="LENDUSER_ID",referencedColumnName="ID")
 	private User lendUser;
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public Date getLendDate() {
-		return lendDate;
-	}
-	public void setLendDate(Date lendDate) {
-		this.lendDate = lendDate;
-	}
-	public Date getDueDate() {
-		return dueDate;
-	}
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
-	}
-	public Date getReturnDate() {
-		return returnDate;
-	}
-	public void setReturnDate(Date returnDate) {
-		this.returnDate = returnDate;
-	}
-	public String getReview() {
-		return review;
-	}
-	public void setReview(String review) {
-		this.review = review;
-	}
-	public double getStarRating() {
-		return starRating;
-	}
-	public void setStarRating(double starRating) {
-		this.starRating = starRating;
-	}
-	public Movie getMovie() {
-		return movie;
-	}
-	public void setMovie(Movie movie) {
-		this.movie = movie;
-	}
-	public User getLendUser() {
-		return lendUser;
-	}
-	public void setLendUser(User lendUser) {
-		this.lendUser = lendUser;
-	}
 
 }

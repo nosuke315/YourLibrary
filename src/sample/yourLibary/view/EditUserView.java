@@ -10,11 +10,15 @@ import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.ToggleSelectEvent;
 
+import lombok.Getter;
+import lombok.Setter;
 import sample.yourLibrary.entity.User;
 import sample.yourLibrary.logic.UserManager;
 
 @ManagedBean(name="editUserView")
 @ViewScoped
+@Setter
+@Getter
 public class EditUserView {
 	private String account;
 	private String name;
@@ -25,66 +29,14 @@ public class EditUserView {
 	private IdEntityListDataModel<User> userModel;
 	private List<User>  selectedUsers;
 	private String newPassword;
+	public boolean isSelected;
 
-	public String getAccount() {
-		return account;
-	}
-	public void setAccount(String account) {
-		this.account = account;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public boolean isAdmin() {
-		return isAdmin;
-	}
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-	public List<User> getUsers() {
-		return users;
-	}
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-	public IdEntityListDataModel<User> getUserModel() {
-		return userModel;
-	}
-	public void setUserModel(IdEntityListDataModel<User> userModel) {
-		this.userModel = userModel;
-	}
-	public List<User> getSelectedUsers() {
-		return selectedUsers;
-	}
-	public void setSelectedUsers(List<User> selectedUsers) {
-		this.selectedUsers = selectedUsers;
-	}
-	public String getNewPassword() {
-		return newPassword;
-	}
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
-	}
 	@PostConstruct
 	public void init() {
 		users = UserManager.findAll();
 		userModel = new IdEntityListDataModel<User>(UserManager.findAll());
 	}
+	/* ユーザーの追加 */
 	public String addUser() {
 		if(account == null || name == null)
 			return null;
@@ -94,8 +46,9 @@ public class EditUserView {
 		user.setAdmin(isAdmin);
 		user = UserManager.updateUser(user);
 		users = UserManager.findAll();
-		return "succes";
+		return "success";
 	}
+	/* ユーザーの削除 */
 	public String removeUser() {
 		if(selectedUsers == null || selectedUsers.isEmpty())
 			return "success";
@@ -104,9 +57,9 @@ public class EditUserView {
 		userModel.setWrappedData(users);
 		ViewUtil.AddMessage("ユーザの削除",selectedUsers.size()+"件のユーザーを削除");
 		isSelected = false;
-		return "succes";
+		return "success";
 	}
-	public boolean isSelected;
+	//isSelectedのSetter
 	public boolean getIsSelected() {
 		return isSelected;
 	}
@@ -119,6 +72,8 @@ public class EditUserView {
 	public void handleToggleSelect(ToggleSelectEvent event) {
 		isSelected = (getSelectedUsers().size()>0);
 	}
+
+	/* パスワードのUpdate */
 	public String updatePassword() {
 		if(selectedUsers==null || selectedUsers.isEmpty())
 			return "success";
@@ -130,6 +85,7 @@ public class EditUserView {
 		ViewUtil.AddMessage("change password", user.getName()+"changed password!");
 		return "success";
 	}
+
 	public void onRowEdit(RowEditEvent event) {
 		User user=(User)event.getObject();
 		UserManager.updateUser(user);

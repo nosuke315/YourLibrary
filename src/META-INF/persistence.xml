@@ -7,9 +7,9 @@
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE" />
-			<property name="javax.persistence.jdbc.user" value="Yamaton" />
-			<property name="javax.persistence.jdbc.password" value="sensei" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1520:XE" />
+			<property name="javax.persistence.jdbc.user" value="sampleuser" />
+			<property name="javax.persistence.jdbc.password" value="nekokan1st" />
 			<property name="javax.persistence.schema-generation.database.action"
 				value="create" />
 			<property name="javax.persistence.schema-generation.create-source"

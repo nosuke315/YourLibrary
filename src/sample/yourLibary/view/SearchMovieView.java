@@ -6,9 +6,13 @@ import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
+import lombok.Getter;
+import lombok.Setter;
 import sample.yourLibrary.entity.Movie;
 import sample.yourLibrary.logic.MovieManager;
 
+@Getter
+@Setter
 public class SearchMovieView {
 	private List<Movie> movies;
 	private IdEntityListDataModel<Movie> movieModel;
@@ -18,9 +22,6 @@ public class SearchMovieView {
 	private boolean isLent;
 	private Movie selectedMovies;
 	public boolean isSelected;
-	public boolean getIsSelected() {
-		return isSelected;
-	}
 	private List<String> enteredTitles;
 	private List<String> enteredCategory;
 	private List<String> enteredOutline;
@@ -29,60 +30,6 @@ public class SearchMovieView {
 	private List<Movie> moviesInCart;
 	private Movie selectedMovie;
 
-	public List<Movie> getMoviesInCart() {
-		return moviesInCart;
-	}
-	public void setMoviesInCart(List<Movie> moviesInCart) {
-		this.moviesInCart = moviesInCart;
-	}
-	public Movie getSelectedMovie() {
-		return selectedMovie;
-	}
-	public void setSelectedMovie(Movie selectedMovie) {
-		this.selectedMovie = selectedMovie;
-	}
-	public List<Movie> getMovies() {
-		return movies;
-	}
-	public void setMovies(List<Movie> movies) {
-		this.movies = movies;
-	}
-	public IdEntityListDataModel<Movie> getMovieModel() {
-		return movieModel;
-	}
-	public void setMovieModel(IdEntityListDataModel<Movie> movieModel) {
-		this.movieModel = movieModel;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getCategory() {
-		return Category;
-	}
-	public void setCategory(String category) {
-		Category = category;
-	}
-	public boolean isLent() {
-		return isLent;
-	}
-	public void setLent(boolean isLent) {
-		this.isLent = isLent;
-	}
-	public Movie getSelectedMovies() {
-		return selectedMovies;
-	}
-	public void setSelectedMovies(Movie selectedMovies) {
-		this.selectedMovies = selectedMovies;
-	}
 	@PostConstruct
 	public void init() {
 		movies = new ArrayList<Movie>();

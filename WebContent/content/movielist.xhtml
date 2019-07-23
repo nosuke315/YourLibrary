@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       >
 <h2>映画検索</h2>
-	<h:from id="addMovieForm">
+	<h:form id="addMovieForm">
 		<p:growl showDetail="true" autoUpdate="true"/>
 		<p:panelGrid column="2">
 			<p:outputLabel value="タイトル:"/>
@@ -21,5 +21,5 @@
 			<p:inputText id="outline" value="#{searchMovieView.Outline}"/>
 		</p:panelGrid>
 		<p:messages />
-	</h:from>
+	</h:form>
 </html>

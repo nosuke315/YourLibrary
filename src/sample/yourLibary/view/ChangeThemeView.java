@@ -6,11 +6,15 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import lombok.Getter;
+import lombok.Setter;
 import sample.yourLibrary.entity.User;
 import sample.yourLibrary.logic.UserManager;
 
 @ManagedBean(name="changeThemeView")
 @ViewScoped
+@Getter
+@Setter
 public class ChangeThemeView {
 	private String selectedTheme;
 	private TreeMap<String, String> themes;

@@ -11,8 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "MOVIE")
+@Getter
+@Setter
 public class Movie implements IdEntity{
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
@@ -34,51 +39,12 @@ public class Movie implements IdEntity{
 		this.isLent = isLent;
 	}
 
-	public List<LendHistory> getLendHistories() {
-		return lendHistories;
-	}
-
-	public void setLendHistories(List<LendHistory> lendHistories) {
-		this.lendHistories = lendHistories;
-	}
-
 	@OneToMany(mappedBy = "movie",cascade=CascadeType.ALL)
 	List<LendHistory> lendHistories;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getOutline() {
-		return outline;
-	}
-
-	public void setOutline(String outline) {
-		this.outline = outline;
-	}
 
 	public void addLendHistory(LendHistory history) {
 		lendHistories.add(history);
-	}
-
-	public String getCategory() {
-		return Category;
-	}
-
-	public void setCategory(String category) {
-		Category = category;
 	}
 
 }

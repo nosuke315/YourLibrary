@@ -31,7 +31,7 @@ public class SessionInfo implements Serializable{
 		}catch(ServletException e) {
 			e.printStackTrace();
 		}
-		return "/index.xhtml?faces-redirect=true";
+		return "/index.xhtml";
 	}
 
 	public String getTheme()

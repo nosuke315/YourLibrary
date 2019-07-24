@@ -12,8 +12,8 @@
 		}
 	});
 	</h:outputScript>
-	<p:growl id="growl" showDetail="true" autoUpdate="true"/>
 <h:form id="addUserForm">
+	<p:growl id="growl" showDetail="true" autoUpdate="true"/>
 	<p:panelGrid columns="2">
 		<p:outputLabel value="アカウント:" />
 		<p:inputText id="account" value="#{editUserView.account}"
@@ -44,17 +44,17 @@
 	<p:commandButton id="removeButton" value="選択したユーザを削除" action="#{editUserView.removeUser}"
 		update="userListForm" disabled="#{empty editUserView.selectedUsers}">
 		<p:confirm header="Confirmation" message="Are you sure you want to delete the selected users?" icon="ui-icon-info"/>
-		<p:confirmDialog global="true" showEffect="explode" hideEffect="slide">
+		<p:confirmDialog global="true" showEffect="explode" hideEffect="explode">
 		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
 		<p:commandButton value="oh...I made mistake" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
 		</p:confirmDialog>
 	</p:commandButton>
 	<br/><br/>
 	<p:dataTable id="userList" value="#{editUserView.userModel}" var="user"
-	editable="true" selection="#{editUserView.selectedUsers}"
-	rowKey="#{user.id}" paginator ="true" paginatorPosition="top"
-	rows="10" rowsPerPageTemplate="5,10,15,30,50"
-	sortMode="multiple" stickyHeader="true">
+		editable="true" selection="#{editUserView.selectedUsers}"
+		rowKey="#{user.id}" paginator ="true" paginatorPosition="top"
+		rows="10" rowsPerPageTemplate="5,10,15,30,50"
+		sortMode="multiple" stickyHeader="true">
 
 		<p:ajax event="contextMenu" update=":userListForm:removeButton" />
 		<p:ajax event="rowSelect" update=":userListForm:removeButton" />
@@ -62,8 +62,8 @@
 		<p:ajax event="rowSelectCheckbox" update=":userListForm:removeButton" />
 		<p:ajax event="rowUnselectCheckbox" update=":userListForm:removeButton" />
 		<p:ajax event="toggleSelect" update=":userListForm:removeButton" />
-		<p:ajax event="rowEdit" listener="#{editUserView.onRowEdit}" update=":growl"/>
-		<p:ajax event="rowEditCancel" listener="#{editUserView.onRowEditCancel}" update="growl"/>
+		<p:ajax event="rowEdit" listener="#{editUserView.onRowEdit}" update=":addUserForm:growl"/>
+		<p:ajax event="rowEditCancel" listener="#{editUserView.onRowEditCancel}" update=":addUserForm:growl"/>
 
 		<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
 
@@ -88,8 +88,7 @@
 			</p:cellEditor>
 		</p:column>
 
-		<p:column headerText="管理者権限" sortBy="#{user.isAdmin}"
-			filterBy="#{user.isAdmin}" filterMatchMode="exact" style="text-align:center">
+		<p:column headerText="管理者権限" sortBy="#{user.isAdmin}" filterBy="#{user.isAdmin}" filterMatchMode="exact" style="text-align:center">
 			<p:cellEditor>
 				<f:facet name="output"><p:selectBooleanCheckbox value="#{user.isAdmin}" disabled="true"/></f:facet>
 				<f:facet name="input"><p:selectBooleanCheckbox value="#{user.isAdmin}" /></f:facet>
@@ -103,8 +102,7 @@
 	</p:dataTable>
 	<p:contextMenu for="userList">
 		<p:menuitem value="Change password" icon="ui-icon-pencil" update="dialog" oncomplete="PF('passwordDialog').show()">
-		<f:setPropertyActionListener value="#{editUserView.selectedUsers[0].password}"
-			target="#{editUserView.newPassword}"/>
+		<f:setPropertyActionListener value="#{editUserView.selectedUsers[0].password}" target="#{editUserView.newPassword}"/>
 		</p:menuitem>
 	</p:contextMenu>
 </h:form>

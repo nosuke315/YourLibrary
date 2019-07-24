@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+	<h2>映画の検索</h2>
+	<p:growl id="growl" showDetail="true" autoUpdate="true"/>
+	<h:form id="searchMovieForm">
+		<p:panelGrid columns="2">
+			<p:outputLabel value="タイトル:"/>
+			<p:autoComplete id ="title" value="#{searchMovieView.title}"
+				completeMethod="#{searchMovieView.completeTitle}"/>
+
+			<p:outputLabel value="カテゴリ:"/>
+			<p:autoComplete id="category" value="#{searchMovieView.category}"
+				completeMethod="#{searchMovieView.completeCategory}"
+				dropdown="true"/>
+
+			<p:outputLabel value="あらすじ:"/>
+			<p:autoComplete id="outline" value="#{searchMovieView.outline}"
+				completeMethod="#{searchMovieView.completeOutline}"/>
+		</p:panelGrid>
+		<p:messages />
+		<p:commandButton value="映画の検索" actionListener="#{searchMovieView.searchMovie}"
+			update="movieListForm:movieList"/>
+	</h:form>
+	<h2>検索結果</h2>
+	<h:form id="movieListForm" onkeypress="if(event.keyCode == 13){return false;}">
+	<p:dataTable id="movieList" value="#{SearchMovieView.movieModel}" var="user"
+	editable="true" selection="#{SearchMovieView.selectedMovies}"
+	rowKey="#{movie.id}" paginator ="true" paginatorPosition="top"
+	rows="10" rowsPerPageTemplate="5,10,15,30,50"
+	sortMode="multiple" stickyHeader="true">
+	<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+
+		<p:column headerText="タイトル" sortBy="#{movie.title}" filterBy="#{movie.title}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.title}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{movie.title}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="カテゴリ" sortBy="#{movie.category}" filterBy="#{movie.category}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.category}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{movie.category}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="あらすじ" sortBy="#{movie.outline}" filterBy="#{movie.outline}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.outline}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{movie.outline}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column style="width:32px">
+			<p:rowEditor/>
+		</p:column>
+
+	</p:dataTable>
+	</h:form>
+</html>

@@ -4,7 +4,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       >
-<h2>映画検索</h2>
+<h2>映画編集</h2>
 	<h:form id="addMovieForm">
 		<p:growl showDetail="true" autoUpdate="true"/>
 		<p:panelGrid column="2">
@@ -21,5 +21,27 @@
 			<p:inputText id="outline" value="#{searchMovieView.Outline}"/>
 		</p:panelGrid>
 		<p:messages />
+		<p:commandButton value="映画の追加" action="#{editMovieView.addMovie}" update=":movieListForm:movieList"/>
+	</h:form>
+	<br />
+	<p:separator />
+	<br />
+	<h2>映画一覧</h2>
+	<h:form id="movieListForm" onkeypress="if(event.keyCode==13) return false;">
+		<p:commandButton id="removeButton" value="選択したユーザを削除" action="#{editUserView.removeUser}"
+			update="userListForm" disabled="#{empty editUserView.selectedUsers}">
+			<p:confirm header="Confirmation" message="Are you sure you want to delete the selected users?" icon="ui-icon-info"/>
+			<p:confirmDialog global="true" showEffect="explode" hideEffect="slide">
+			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+			<p:commandButton value="oh...I made mistake" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+			</p:confirmDialog>
+		</p:commandButton>
+		<br/><br/>
+		<p:dataTable id="movieList" value="#{editMovieView.movieModel}" var="movie"
+		editable="true" selection="#{editMovieView.selectedUsers}"
+		rowKey="#{movie.id}" paginator ="true" paginatorPosition="top"
+		rows="10" rowsPerPageTemplate="5,10,15,30,50"
+		sortMode="multiple" stickyHeader="true">
+		</p:dataTable>
 	</h:form>
 </html>

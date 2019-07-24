@@ -46,6 +46,12 @@ public class EditUserView {
 		user.setAdmin(isAdmin);
 		user = UserManager.updateUser(user);
 		users = UserManager.findAll();
+		//reset処理
+		this.setPassword("");
+		this.setEmail("");
+		this.setAccount("");
+		this.setName("");
+		this.setAdmin(false);
 		return "success";
 	}
 	/* ユーザーの削除 */

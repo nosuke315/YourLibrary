@@ -22,4 +22,9 @@
 		<to-view-id>/editUser.xhtml</to-view-id>
 	</navigation-case>
 </navigation-rule>
+<application>
+        <message-bundle>
+            resources.message
+        </message-bundle>
+    </application>
 </faces-config>

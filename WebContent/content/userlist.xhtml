@@ -70,14 +70,14 @@
 		<p:column headerText="アカウント" sortBy="#{user.account}" filterBy="#{user.account}" filterMatchMode="contains">
 			<p:cellEditor>
 			<f:facet name="output"><p:outputLabel value="#{user.account}"/></f:facet>
-			<f:facet name="input"><p:inputText value="#{user.account}" required="true"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{user.account}" required="true" label="アカウント"/></f:facet>
 			</p:cellEditor>
 		</p:column>
 
 		<p:column headerText="名前" sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">
 			<p:cellEditor>
 			<f:facet name="output"><p:outputLabel value="#{user.name}"/></f:facet>
-			<f:facet name="input"><p:inputText value="#{user.name}" required="true"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{user.name}" required="true" label="名前"/></f:facet>
 			</p:cellEditor>
 		</p:column>
 

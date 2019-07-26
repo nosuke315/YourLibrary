@@ -13,7 +13,6 @@
 	});
 	</h:outputScript>
 <h:form id="addUserForm">
-	<p:growl id="growl" showDetail="true" autoUpdate="true"/>
 	<p:panelGrid columns="2">
 		<p:outputLabel value="アカウント:" />
 		<p:inputText id="account" value="#{editUserView.account}"
@@ -30,21 +29,22 @@
 		<p:inputText id="email" value="#{editUserView.email}" />
 
 		<p:outputLabel value="管理者権限:" />
-		<p:selectBooleanCheckbox id="isAdmin" value="editUserView.isAdmin" style="align:center"/>
+		<p:selectBooleanCheckbox id="isAdmin" value="#{editUserView.adminflg}" style="align:center"/>
 	</p:panelGrid>
 	<p:messages />
-	<p:commandButton value="ユーザの追加" action="#{editUserView.addUser}"
-		update=":userListForm:userList"/>
+	<p:commandButton value="ユーザの追加" action="#{editUserView.addUser}" update=":userListForm:userList"/>
 </h:form>
 <br />
 <p:separator />
 <br />
+<p:growl id="msgs" showDetail="true"/>
 <h2>ユーザー一覧</h2>
 <h:form id="userListForm" onkeypress="if(event.keyCode==13) return false;">
+	<p:remoteCommand name="updateDataTable" update=":userListForm:userList"/>
 	<p:commandButton id="removeButton" value="選択したユーザを削除" action="#{editUserView.removeUser}"
 		update="userListForm" disabled="#{empty editUserView.selectedUsers}">
 		<p:confirm header="Confirmation" message="Are you sure you want to delete the selected users?" icon="ui-icon-info"/>
-		<p:confirmDialog global="true" showEffect="explode" hideEffect="explode">
+		<p:confirmDialog global="true" showEffect="explode" hideEffect="Blind">
 		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
 		<p:commandButton value="oh...I made mistake" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
 		</p:confirmDialog>
@@ -62,22 +62,22 @@
 		<p:ajax event="rowSelectCheckbox" update=":userListForm:removeButton" />
 		<p:ajax event="rowUnselectCheckbox" update=":userListForm:removeButton" />
 		<p:ajax event="toggleSelect" update=":userListForm:removeButton" />
-		<p:ajax event="rowEdit" listener="#{editUserView.onRowEdit}" update=":addUserForm:growl"/>
-		<p:ajax event="rowEditCancel" listener="#{editUserView.onRowEditCancel}" update=":addUserForm:growl"/>
+		<p:ajax oncomplete="updateDataTable()" event="rowEdit" listener="#{editUserView.onRowEdit}" global="false" process="@this" update=":msgs" />
+		<p:ajax oncomplete="updateDataTable()" event="rowEditCancel" listener="#{editUserView.onRowEditCancel}" global="false" process="@this" update=":msgs" />
 
 		<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
 
 		<p:column headerText="アカウント" sortBy="#{user.account}" filterBy="#{user.account}" filterMatchMode="contains">
 			<p:cellEditor>
 			<f:facet name="output"><p:outputLabel value="#{user.account}"/></f:facet>
-			<f:facet name="input"><p:inputText value="#{user.account}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{user.account}" required="true"/></f:facet>
 			</p:cellEditor>
 		</p:column>
 
 		<p:column headerText="名前" sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">
 			<p:cellEditor>
 			<f:facet name="output"><p:outputLabel value="#{user.name}"/></f:facet>
-			<f:facet name="input"><p:inputText value="#{user.name}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{user.name}" required="true"/></f:facet>
 			</p:cellEditor>
 		</p:column>
 
@@ -88,10 +88,10 @@
 			</p:cellEditor>
 		</p:column>
 
-		<p:column headerText="管理者権限" sortBy="#{user.isAdmin}" filterBy="#{user.isAdmin}" filterMatchMode="exact" style="text-align:center">
+		<p:column headerText="管理者権限" sortBy="#{user.adminflg}" filterBy="#{user.adminflg}" filterMatchMode="exact" style="text-align:center">
 			<p:cellEditor>
-				<f:facet name="output"><p:selectBooleanCheckbox value="#{user.isAdmin}" disabled="true"/></f:facet>
-				<f:facet name="input"><p:selectBooleanCheckbox value="#{user.isAdmin}" /></f:facet>
+				<f:facet name="output"><p:selectBooleanCheckbox value="#{user.adminflg}" disabled="true"/></f:facet>
+				<f:facet name="input"><p:selectBooleanCheckbox value="#{user.adminflg}" /></f:facet>
 			</p:cellEditor>
 		</p:column>
 

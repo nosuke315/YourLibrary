@@ -8,9 +8,13 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import lombok.Getter;
+import lombok.Setter;
 import sample.yourLibrary.entity.LendHistory;
 import sample.yourLibrary.entity.User;
+import sample.yourLibrary.view.ViewUtil;
 
+@Getter @Setter
 public class UserManager {
 	private static EntityManager getEm() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("YourLibrary");
@@ -70,7 +74,7 @@ public class UserManager {
 			{//adminがいないときに作成するバックドア
 				admin = createUser(account,password);
 				admin.setPassword("admin");
-				admin.setAdmin(true);
+				admin.setAdminflg(true);
 				updateUser(admin);
 				return admin;
 			}
@@ -81,9 +85,14 @@ public class UserManager {
 		EntityManager em =getEm();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		if(!em.contains(user))
-		user = em.merge(user);
-		tx.commit();
+		if(!em.contains(user)) {
+			try {
+				user = em.merge(user);
+				tx.commit();
+			}catch(Exception e){
+				ViewUtil.AddErrorMessage("ユーザの編集", "ユーザ"+ user.getName() + "を更新時にエラーが発生しました");
+			}
+		}
 		em.close();
 		return user;
 	}

@@ -30,8 +30,8 @@ public class User implements IdEntity{
 	private String name;
 	@Column(name="E_MAIL")
 	private String email;
-	@Column(name="IS_ADMIN")
-	private boolean isAdmin = false;
+	@Column(name="ADMIN_FLG")
+	private boolean adminflg = false;
 	@Column(name="THEME")
 	private String theme;
 
@@ -40,14 +40,6 @@ public class User implements IdEntity{
 
 	public void addLendHistory(LendHistory history) {
 		lendHistories.add(history);
-	}
-
-	public boolean getisAdmin() {
-		return isAdmin;
-	}
-
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
 	}
 
 

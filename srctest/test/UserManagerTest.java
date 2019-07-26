@@ -43,7 +43,7 @@ public class UserManagerTest {
 		//更新
 		find1.setPassword("micky");
 		find1.setEmail("micky@destiney.land.hell");
-		find1.setAdmin(true);
+		find1.setAdminflg(true);
 		UserManager.updateUser(find1);
 
 		//アカウント検索
@@ -52,7 +52,7 @@ public class UserManagerTest {
 		assertEquals("user1name",find1.getName());
 		assertEquals("micky",find1.getPassword());
 		assertEquals("micky@destiney.land.hell",find1.getEmail());
-		assertTrue(find1.getisAdmin());
+		assertTrue(find1.isAdminflg());
 
 		//ログイン
 		User login = UserManager.login("user1", "micky");

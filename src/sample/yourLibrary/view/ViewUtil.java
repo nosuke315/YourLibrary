@@ -1,4 +1,4 @@
-package sample.yourLibary.view;
+package sample.yourLibrary.view;
 
 import javax.el.ELContext;
 import javax.faces.application.FacesMessage;

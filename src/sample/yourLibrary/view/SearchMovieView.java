@@ -1,4 +1,4 @@
-package sample.yourLibary.view;
+package sample.yourLibrary.view;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 
 import lombok.Getter;
 import lombok.Setter;
+import sample.yourLibrary.cmn.IdEntityListDataModel;
 import sample.yourLibrary.entity.Movie;
 import sample.yourLibrary.logic.MovieManager;
 

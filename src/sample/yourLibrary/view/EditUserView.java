@@ -1,4 +1,4 @@
-package sample.yourLibary.view;
+package sample.yourLibrary.view;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import org.primefaces.event.ToggleSelectEvent;
 
 import lombok.Getter;
 import lombok.Setter;
+import sample.yourLibrary.cmn.IdEntityListDataModel;
 import sample.yourLibrary.entity.User;
 import sample.yourLibrary.logic.UserManager;
 
@@ -24,7 +25,7 @@ public class EditUserView {
 	private String name;
 	private String password;
 	private String email;
-	private boolean isAdmin;
+	private boolean adminflg;
 	private List<User> users;
 	private IdEntityListDataModel<User> userModel;
 	private List<User>  selectedUsers;
@@ -43,7 +44,7 @@ public class EditUserView {
 		User user = UserManager.createUser(account,name);
 		user.setPassword(password);
 		user.setEmail(email);
-		user.setAdmin(isAdmin);
+		user.setAdminflg(adminflg);
 		user = UserManager.updateUser(user);
 		users = UserManager.findAll();
 		//reset処理
@@ -51,7 +52,7 @@ public class EditUserView {
 		this.setEmail("");
 		this.setAccount("");
 		this.setName("");
-		this.setAdmin(false);
+		this.setAdminflg(false);
 		return "success";
 	}
 	/* ユーザーの削除 */

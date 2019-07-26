@@ -1,4 +1,4 @@
-package sample.yourLibary.view;
+package sample.yourLibrary.view;
 
 import java.util.TreeMap;
 

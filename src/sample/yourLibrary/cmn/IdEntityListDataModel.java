@@ -1,4 +1,4 @@
-package sample.yourLibary.view;
+package sample.yourLibrary.cmn;
 
 import java.util.List;
 import javax.faces.model.ListDataModel;

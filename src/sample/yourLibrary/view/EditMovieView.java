@@ -1,4 +1,4 @@
-package sample.yourLibary.view;
+package sample.yourLibrary.view;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import org.primefaces.event.ToggleSelectEvent;
 
 import lombok.Getter;
 import lombok.Setter;
+import sample.yourLibrary.cmn.IdEntityListDataModel;
 import sample.yourLibrary.entity.Movie;
 import sample.yourLibrary.logic.MovieManager;
 

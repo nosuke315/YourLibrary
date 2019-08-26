@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="Windows-31J"?>
+<!DOCTYPE html>
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+  	<h:head>
+		<meta http-equiv="content-type" content="text/html;charset=Windows-31J"></meta>
+		<meta http-equiv="expires" content="0"></meta>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			    $("#passwordForm\\:Current_pass").focus();
+			    $("#passwordForm\\:Current_pass").select();
+			});
+		</script>
+	</h:head>
+	<h2>パスワード変更</h2>
+		<h:form id="passwordForm">
+			<p:growl id="msgs" showDetail="true"/>
+			<p:panelGrid columns="2">
+				<p:outputLabel value="password"/>
+				<p:password id="Current_pass" value="#{sessionInfo.loginUser.password}" redisplay="true"/>
+				<p:outputLabel value="newpassword"/>
+				<p:password id="Currents_pass" value="#{changePasswordView.newPassword}" redisplay="true"/>
+				<p:commandButton value="OK" icon="ui-icon-cheack" action="#{changePasswordView.changePassword}" update=":passwordForm:msgs" />
+				<p:commandButton value="Cancel" icon="ui-icon-close" />
+			</p:panelGrid>
+		</h:form>
+</h:html>

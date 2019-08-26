@@ -85,6 +85,7 @@ public class EditUserView {
 		if(selectedUsers==null || selectedUsers.isEmpty())
 			return "success";
 		User user = selectedUsers.get(0);
+		//同じ場合は非更新
 		if(newPassword.equals(user.getPassword()))
 			return "success";
 		user.setPassword(newPassword);

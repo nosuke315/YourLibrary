@@ -2,7 +2,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:form id="panelMenus">
 	<p:panelMenu style="width:300px">
@@ -19,14 +20,16 @@
 			<p:menuitem value="映画をレビューする" action="/reviewMovie.xhtml" icon="ui-icon-star" />
 		</p:submenu>
 		<p:separator />
+		<c:if test="#{sessionInfo.loginUser.adminflg eq 'true'}">
 		<p:submenu label="管理">
 			<p:submenu label="ユーザ" icon="ui-icon-home">
-				<p:menuitem value="ユーザの編集" action="/editUser.xhtml" icon="ui-icon-pencil"/>
+				<p:menuitem value="ユーザの追加・編集" action="/editUser.xhtml" icon="ui-icon-pencil"/>
 			</p:submenu>
 			<p:submenu label="映画" icon="ui-icon-disk">
-				<p:menuitem value="映画の編集" action="/editMovie.xhtml" icon="ui-icon-pencil" />
+				<p:menuitem value="映画の追加・編集" action="/editMovie.xhtml" icon="ui-icon-pencil" />
 			</p:submenu>
 		</p:submenu>
+		</c:if>
 	</p:panelMenu>
 </h:form>
 

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +14,8 @@ import sample.yourLibrary.cmn.IdEntityListDataModel;
 import sample.yourLibrary.entity.Movie;
 import sample.yourLibrary.logic.MovieManager;
 
+@ManagedBean(name="searchMovieView")
+@ViewScoped
 @Getter
 @Setter
 public class SearchMovieView {
@@ -20,6 +24,7 @@ public class SearchMovieView {
 	private String title;
 	private long id;
 	private String Category;
+	private String outline;
 	private boolean isLent;
 	private Movie selectedMovies;
 	public boolean isSelected;
@@ -87,6 +92,12 @@ public class SearchMovieView {
 	}
 
 	public String set() {
-		return "searchMovie.xhtml";
+		return "/searchMovie.xhtml";
 	}
+
+	public String searchMovie() {
+		MovieManager.searchMovie(title, Category, outline);
+		return "success";
+	}
+
 }

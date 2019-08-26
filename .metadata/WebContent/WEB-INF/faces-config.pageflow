@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15641284123070" configfile="/yourLibrary/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="editMovie.xhtml" id="pf15664564455896" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf15664564455897" inlinks="pf15664564455897" path="/editMovie.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editUser.xhtml" id="pf15664564455898" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf15664564455899" inlinks="pf15664564455899" path="/editUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf156645644558910" outlinks="pf156645644558911" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf156645644558912" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" outlinks="pf156645644558913 pf156645644558914" inlinks="pf156645644558911 pf156645644558914" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="searchMovie.xhtml" id="pf156645644558915" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf156645644558913" path="/searchMovie.xhtml"/>
+  <links id="pf15664564455897" target="pf15664564455896" source="pf15664564455896" outcome="success"/>
+  <links id="pf15664564455899" target="pf15664564455898" source="pf15664564455898" outcome="success"/>
+  <links id="pf156645644558911" target="pf156645644558912" source="pf156645644558910" outcome="logout"/>
+  <links id="pf156645644558913" target="pf156645644558915" source="pf156645644558912" outcome="success"/>
+  <links id="pf156645644558914" target="pf156645644558912" source="pf156645644558912" outcome="failure"/>
+</pageflow:Pageflow>

@@ -29,7 +29,7 @@ public class EditMovieView {
 	private List<Movie> movies;
 	private IdEntityListDataModel<Movie> movieModel;
 	private List<Movie>  selectedMovies;
-	public boolean islended;
+	public boolean islent;
 	public boolean isSelected;
 
 	@PostConstruct
@@ -48,7 +48,7 @@ public class EditMovieView {
 		movie = MovieManager.updateMovie(movie);
 		movies= MovieManager.findAll();
 		//reset処理
-		this.setID(0);
+		this.setID(0000);
 		this.setTitle("");
 		this.setCategory("");
 		this.setOutline("");

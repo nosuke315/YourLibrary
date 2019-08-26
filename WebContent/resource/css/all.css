@@ -1,0 +1,6 @@
+.center{
+  border: 1px solid #aaa;
+  text-align: center;
+  margin:auto;
+  display:table-cell;
+}

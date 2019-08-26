@@ -1,0 +1,19 @@
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:form id="form">
+    <p:dataTable id="cars" var="car" value="#{dtColumnsView.cars}" widgetVar="carsTable" filteredValue="#{dtColumnsView.filteredCars}"
+	editable="true" selection="#{dtColumnsView.filteredCars}" rowKey="#{car.id}" paginator ="true" paginatorPosition="top"
+	rows="10" rowsPerPageTemplate="5,10,15,30,50" sortMode="multiple" stickyHeader="true">
+        <p:columns value="#{dtColumnsView.columns}" var="column" columnIndexVar="colIndex" sortBy="#{car[column.property]}" filterBy="#{car[column.property]}">
+            <f:facet name="header">
+                <h:outputText value="#{column.header}" />
+            </f:facet>
+            <h:outputText value="#{car[column.property]}" />
+        </p:columns>
+    </p:dataTable>
+</h:form>
+</html>

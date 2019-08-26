@@ -22,6 +22,20 @@
 		<to-view-id>/editUser.xhtml</to-view-id>
 	</navigation-case>
 </navigation-rule>
+ <navigation-rule>
+	<from-view-id>/editMovie.xhtml</from-view-id>
+	<navigation-case>
+		<from-outcome>success</from-outcome>
+		<to-view-id>/editMovie.xhtml</to-view-id>
+	</navigation-case>
+</navigation-rule>
+ <navigation-rule>
+	<from-view-id>/searchMovie.xhtml</from-view-id>
+	<navigation-case>
+		<from-outcome>logout</from-outcome>
+		<to-view-id>/index.xhtml</to-view-id>
+	</navigation-case>
+</navigation-rule>
 <application>
         <message-bundle>
             resources.message

@@ -4,9 +4,12 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	<h2>Your Library</h2>
+<h:head>
+	<link rel="stylesheet" href="./resource/css/all.css"/>
+</h:head>
+<h2>Your Library</h2>
 <h:form id="loginForm">
-	<h:graphicImage url="./resource/image/top.jpeg"/>
+	<h:graphicImage class="center" url="./resource/image/top.jpeg"/>
 	<h:panelGrid columns="2">
 		<h:outputText value="アカウント:" />
 		<h:inputText value="#{loginView.account}" />

@@ -31,7 +31,7 @@ public class SessionInfo implements Serializable{
 		}catch(ServletException e) {
 			e.printStackTrace();
 		}
-		return "/index.xhtml";
+		return "logout";
 	}
 
 	public String getTheme()

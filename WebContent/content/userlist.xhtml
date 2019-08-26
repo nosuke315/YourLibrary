@@ -1,5 +1,4 @@
-<html
-	xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -15,12 +14,10 @@
 <h:form id="addUserForm">
 	<p:panelGrid columns="2">
 		<p:outputLabel value="アカウント:" />
-		<p:inputText id="account" value="#{editUserView.account}"
-			reqyured="true" requiredMessage="アカウント名は必須です"/>
+		<p:inputText id="account" value="#{editUserView.account}" required="true" requiredMessage="アカウント名は必須です。"/>
 
 		<p:outputLabel value="名前:" />
-		<p:inputText id="name" value="#{editUserView.name}"
-			required="true" requiredMessage="名前は必須です"/>
+		<p:inputText id="name" value="#{editUserView.name}" required="true" requiredMessage="名前は必須です。"/>
 
 		<p:outputLabel value="パスワード:" />
 		<p:password value="#{editUserView.password}" />
@@ -54,7 +51,7 @@
 		editable="true" selection="#{editUserView.selectedUsers}"
 		rowKey="#{user.id}" paginator ="true" paginatorPosition="top"
 		rows="10" rowsPerPageTemplate="5,10,15,30,50"
-		sortMode="multiple" stickyHeader="true">
+		sortMode="multiple">
 
 		<p:ajax event="contextMenu" update=":userListForm:removeButton" />
 		<p:ajax event="rowSelect" update=":userListForm:removeButton" />
@@ -67,14 +64,14 @@
 
 		<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
 
-		<p:column headerText="アカウント" sortBy="#{user.account}" filterBy="#{user.account}" filterMatchMode="contains">
+		<p:column id="account" headerText="アカウント" sortBy="#{user.account}" filterBy="#{user.account}" filterMatchMode="contains">
 			<p:cellEditor>
 			<f:facet name="output"><p:outputLabel value="#{user.account}"/></f:facet>
-			<f:facet name="input"><p:inputText value="#{user.account}" required="true" label="アカウント"/></f:facet>
+			<f:facet  name="input"><p:inputText value="#{user.account}" required="true" label="アカウント"/></f:facet>
 			</p:cellEditor>
 		</p:column>
 
-		<p:column headerText="名前" sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">
+		<p:column  headerText="名前" sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">
 			<p:cellEditor>
 			<f:facet name="output"><p:outputLabel value="#{user.name}"/></f:facet>
 			<f:facet name="input"><p:inputText value="#{user.name}" required="true" label="名前"/></f:facet>

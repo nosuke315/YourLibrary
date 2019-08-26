@@ -2,23 +2,25 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      >
+      xmlns:p="http://primefaces.org/ui">
 <h2>映画編集</h2>
+	<p:growl id="msgs" showDetail="true" autoUpdate="true"/>
 	<h:form id="addMovieForm">
-		<p:growl showDetail="true" autoUpdate="true"/>
-		<p:panelGrid column="2">
+		<p:panelGrid columns="2">
 			<p:outputLabel value="タイトル:"/>
-			<p:inputText id="account" value="#{SearchMovieView.title}" />
+			<p:inputText id="account" value="#{editMovieView.title}" />
 
 			<p:outputLabel value="ID:"/>
-			<p:inputText id="id" value="#{SearchMovieView.id}"/>
+			<p:inputText id="id" value="#{editMovieView.ID}"/>
 
 			<p:outputLabel value="Category:"/>
-			<p:inputText id="Category" value="#{searchMovieView.Category}"/>
+			<p:inputText id="Category" value="#{editMovieView.category}"/>
 
 			<p:outputLabel value="Outline:"/>
-			<p:inputText id="outline" value="#{searchMovieView.Outline}"/>
+			<p:inputText id="outline" value="#{editMovieView.outline}"/>
+
+			<p:outputLabel value="レンタル状態:" />
+			<p:selectBooleanCheckbox id="isLent" value="#{editMovieView.islent}" style="align:center"/>
 		</p:panelGrid>
 		<p:messages />
 		<p:commandButton value="映画の追加" action="#{editMovieView.addMovie}" update=":movieListForm:movieList"/>
@@ -28,20 +30,71 @@
 	<br />
 	<h2>映画一覧</h2>
 	<h:form id="movieListForm" onkeypress="if(event.keyCode==13) return false;">
-		<p:commandButton id="removeButton" value="選択したユーザを削除" action="#{editUserView.removeUser}"
-			update="userListForm" disabled="#{empty editUserView.selectedUsers}">
-			<p:confirm header="Confirmation" message="Are you sure you want to delete the selected users?" icon="ui-icon-info"/>
-			<p:confirmDialog global="true" showEffect="explode" hideEffect="slide">
+		<p:remoteCommand name="updateDataTable" update=":movieListForm:movieList"/>
+		<p:commandButton id="removeButton" value="選択した映画を削除" action="#{editMovieView.removeMovie}"
+			update="movieListForm" disabled="#{empty editMovieView.selectedMovies}">
+			<p:confirm header="Confirmation" message="Are you sure you want to delete the selected movies?" icon="ui-icon-info"/>
+			<p:confirmDialog global="true" showEffect="explode" hideEffect="Blind">
 			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
 			<p:commandButton value="oh...I made mistake" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
 			</p:confirmDialog>
 		</p:commandButton>
 		<br/><br/>
 		<p:dataTable id="movieList" value="#{editMovieView.movieModel}" var="movie"
-		editable="true" selection="#{editMovieView.selectedUsers}"
+		editable="true" selection="#{editMovieView.selectedMovies}"
 		rowKey="#{movie.id}" paginator ="true" paginatorPosition="top"
 		rows="10" rowsPerPageTemplate="5,10,15,30,50"
-		sortMode="multiple" stickyHeader="true">
+		sortMode="multiple">
+
+		<p:ajax event="contextMenu" update=":movieListForm:removeButton" />
+		<p:ajax event="rowSelect" update=":movieListForm:removeButton" />
+		<p:ajax event="rowUnselect" update=":movieListForm:removeButton" />
+		<p:ajax event="rowSelectCheckbox" update=":movieListForm:removeButton" />
+		<p:ajax event="rowUnselectCheckbox" update=":movieListForm:removeButton" />
+		<p:ajax event="toggleSelect" update=":movieListForm:removeButton" />
+		<p:ajax oncomplete="updateDataTable()" event="rowEdit" listener="#{editMovieView.onRowEdit}" global="false" process="@this" update=":msgs" />
+		<p:ajax oncomplete="updateDataTable()" event="rowEditCancel" listener="#{editMovieView.onRowEditCancel}" global="false" process="@this" update=":msgs" />
+
+		<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+
+		<p:column id="title" headerText="タイトル" sortBy="#{movie.title}" filterBy="#{movie.title}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.title}"/></f:facet>
+			<f:facet  name="input"><p:inputText value="#{movie.title}" required="true" label="タイトル"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column  headerText="ID" sortBy="#{movie.id}" filterBy="#{movie.id}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.id}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{movie.id}" required="true" label="ID"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="Category" sortBy="#{movie.category}" filterBy="#{movie.category}" filterMatchMode="contains">
+			<p:cellEditor>
+			<f:facet name="output"><p:outputLabel value="#{movie.category}"/></f:facet>
+			<f:facet name="input"><p:inputText value="#{movie.category}"/></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="あらすじ" sortBy="#{movie.outline}" filterBy="#{movie.outline}" filterMatchMode="exact" style="text-align:center">
+			<p:cellEditor>
+				<f:facet name="output"><p:outputLabel value="#{movie.outline}" disabled="true"/></f:facet>
+				<f:facet name="input"><p:inputText value="#{movie.outline}" /></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column headerText="レンタル状態" sortBy="#{movie.isLent}" filterBy="#{movie.isLent}" filterMatchMode="exact" style="text-align:center">
+			<p:cellEditor>
+				<f:facet name="output"><p:selectBooleanCheckbox value="#{movie.isLent}" disabled="true"/></f:facet>
+				<f:facet name="input"><p:selectBooleanCheckbox value="#{movie.isLent}" /></f:facet>
+			</p:cellEditor>
+		</p:column>
+
+		<p:column style="width:32px">
+			<p:rowEditor/>
+		</p:column>
 		</p:dataTable>
 	</h:form>
 </html>

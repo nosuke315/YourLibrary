@@ -11,15 +11,20 @@
 			<p:menuitem value="検索" action="/searchMovie.xhtml" icon="ui-icon-search" />
 			<p:menuitem value="レンタル履歴" action="/lendHistory.xhtml" icon="ui-icon-cart" />
 		</p:submenu>
+
+		<c:if test="#{sessionInfo.loginUser.adminflg eq 'false'}">
 		<p:submenu label="プロフィール" icon="ui-icon-person">
 			<p:menuitem value="パスワード変更" action="/changePassword.xhtml" icon="ui-icon-heart" />
 			<p:menuitem value="プロフィール変更" action="/changeProfile.xhtml" icon="ui-icon-arrowrefresh-1-w" />
 		</p:submenu>
+		</c:if>
+
 		<p:submenu label="レビュー" icon="ui-icon-star">
 			<p:menuitem value="映画のレビュー検索" action="/searchReview.xhtml" icon="ui-icon-signal" />
 			<p:menuitem value="映画をレビューする" action="/reviewMovie.xhtml" icon="ui-icon-star" />
 		</p:submenu>
 		<p:separator />
+
 		<c:if test="#{sessionInfo.loginUser.adminflg eq 'true'}">
 		<p:submenu label="管理">
 			<p:submenu label="ユーザ" icon="ui-icon-home">

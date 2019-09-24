@@ -28,6 +28,7 @@ public class SessionInfo implements Serializable{
 		HttpServletRequest request = (HttpServletRequest)externalContext.getRequest();
 		try {
 			request.logout();
+			this.setLoginUser(null);
 		}catch(ServletException e) {
 			e.printStackTrace();
 		}

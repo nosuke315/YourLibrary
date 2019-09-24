@@ -1,45 +1,45 @@
-[EL Fine]: server: 2019-07-23 09:53:21.617--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
-[EL Config]: metadata: 2019-07-23 09:53:21.763--ServerSession(187472540)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourLibrary.entity.LendHistory] is set to [FIELD].
-[EL Config]: metadata: 2019-07-23 09:53:21.808--ServerSession(187472540)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field movie] is being defaulted to: class sample.yourLibrary.entity.Movie.
-[EL Config]: metadata: 2019-07-23 09:53:21.809--ServerSession(187472540)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field lendUser] is being defaulted to: class sample.yourLibrary.entity.User.
-[EL Config]: metadata: 2019-07-23 09:53:21.809--ServerSession(187472540)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourLibrary.entity.User] is set to [FIELD].
-[EL Config]: metadata: 2019-07-23 09:53:21.814--ServerSession(187472540)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourLibrary.entity.LendHistory.
-[EL Config]: metadata: 2019-07-23 09:53:21.814--ServerSession(187472540)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourLibrary.entity.Movie] is set to [FIELD].
-[EL Config]: metadata: 2019-07-23 09:53:21.814--ServerSession(187472540)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourLibrary.entity.LendHistory.
-[EL Config]: metadata: 2019-07-23 09:53:21.815--ServerSession(187472540)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourLibrary.entity.LendHistory] is being defaulted to: LendHistory.
-[EL Config]: metadata: 2019-07-23 09:53:21.833--ServerSession(187472540)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2019-07-23 09:53:21.834--ServerSession(187472540)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourLibrary.entity.User] is being defaulted to: User.
-[EL Config]: metadata: 2019-07-23 09:53:21.834--ServerSession(187472540)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourLibrary.entity.Movie] is being defaulted to: Movie.
-[EL Config]: metadata: 2019-07-23 09:53:21.834--ServerSession(187472540)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Info]: 2019-07-23 09:53:22.24--ServerSession(187472540)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.6.4.qualifier
-[EL Fine]: connection: 2019-07-23 09:53:22.444--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.oracle.Oracle11Platform
-[EL Config]: connection: 2019-07-23 09:53:22.461--ServerSession(187472540)--Connection(997850486)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+[EL Fine]: server: 2019-09-20 15:25:48.646--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2019-09-20 15:25:48.851--ServerSession(1217467887)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourLibrary.entity.LendHistory] is set to [FIELD].
+[EL Config]: metadata: 2019-09-20 15:25:48.875--ServerSession(1217467887)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field movie] is being defaulted to: class sample.yourLibrary.entity.Movie.
+[EL Config]: metadata: 2019-09-20 15:25:48.877--ServerSession(1217467887)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field lendUser] is being defaulted to: class sample.yourLibrary.entity.User.
+[EL Config]: metadata: 2019-09-20 15:25:48.877--ServerSession(1217467887)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourLibrary.entity.User] is set to [FIELD].
+[EL Config]: metadata: 2019-09-20 15:25:48.881--ServerSession(1217467887)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourLibrary.entity.LendHistory.
+[EL Config]: metadata: 2019-09-20 15:25:48.881--ServerSession(1217467887)--Thread(Thread[main,5,main])--The access type for the persistent class [class sample.yourLibrary.entity.Movie] is set to [FIELD].
+[EL Config]: metadata: 2019-09-20 15:25:48.882--ServerSession(1217467887)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field lendHistories] is being defaulted to: class sample.yourLibrary.entity.LendHistory.
+[EL Config]: metadata: 2019-09-20 15:25:48.882--ServerSession(1217467887)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourLibrary.entity.LendHistory] is being defaulted to: LendHistory.
+[EL Config]: metadata: 2019-09-20 15:25:48.902--ServerSession(1217467887)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-09-20 15:25:48.902--ServerSession(1217467887)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourLibrary.entity.User] is being defaulted to: User.
+[EL Config]: metadata: 2019-09-20 15:25:48.903--ServerSession(1217467887)--Thread(Thread[main,5,main])--The alias name for the entity class [class sample.yourLibrary.entity.Movie] is being defaulted to: Movie.
+[EL Config]: metadata: 2019-09-20 15:25:48.903--ServerSession(1217467887)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Info]: 2019-09-20 15:25:49.529--ServerSession(1217467887)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.6.2.qualifier
+[EL Fine]: connection: 2019-09-20 15:25:49.828--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.oracle.Oracle11Platform
+[EL Config]: connection: 2019-09-20 15:25:49.842--ServerSession(1217467887)--Connection(209429254)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
 	platform=>Oracle11Platform
 	user name=> "sampleuser"
 	datasource URL=> "jdbc:oracle:thin:@localhost:1520:XE"
 ))
-[EL Config]: connection: 2019-07-23 09:53:22.481--ServerSession(187472540)--Connection(1221027335)--Thread(Thread[main,5,main])--Connected: jdbc:oracle:thin:@localhost:1520:XE
+[EL Config]: connection: 2019-09-20 15:25:49.861--ServerSession(1217467887)--Connection(1341706533)--Thread(Thread[main,5,main])--Connected: jdbc:oracle:thin:@localhost:1520:XE
 	User: SAMPLEUSER
 	Database: Oracle  Version: Oracle Database 11g Release 11.1.0.0.0 - Production
 	Driver: Oracle JDBC driver  Version: 10.2.0.5.0
-[EL Info]: connection: 2019-07-23 09:53:22.522--ServerSession(187472540)--Thread(Thread[main,5,main])--/file:/C:/Users/ne08605/git/yourdiary/build/classes/_YourLibrary login successful
-[EL Fine]: sql: 2019-07-23 09:53:22.63--ServerSession(187472540)--Connection(1221027335)--Thread(Thread[main,5,main])--SELECT * FROM SEQUENCE WHERE SEQ_NAME = 'SEQ_GEN_TABLE'
-[EL Fine]: sql: 2019-07-23 09:53:22.857--ServerSession(187472540)--Connection(1221027335)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME FROM USERTBL ORDER BY ACCOUNT ASC
-[EL Fine]: sql: 2019-07-23 09:53:22.882--ClientSession(913242382)--Connection(1221027335)--Thread(Thread[main,5,main])--UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ?
+[EL Info]: connection: 2019-09-20 15:25:49.9--ServerSession(1217467887)--Thread(Thread[main,5,main])--/file:/C:/Users/ne08605/git/yourdiary/build/classes/_YourLibrary login successful
+[EL Fine]: sql: 2019-09-20 15:25:50.013--ServerSession(1217467887)--Connection(1341706533)--Thread(Thread[main,5,main])--SELECT * FROM SEQUENCE WHERE SEQ_NAME = 'SEQ_GEN_TABLE'
+[EL Fine]: sql: 2019-09-20 15:25:50.211--ServerSession(1217467887)--Connection(1341706533)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, ADMIN_FLG, E_MAIL, NAME, PASSWORD, THEME FROM USERTBL ORDER BY ACCOUNT ASC
+[EL Fine]: sql: 2019-09-20 15:25:50.238--ClientSession(144699438)--Connection(1341706533)--Thread(Thread[main,5,main])--UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ?
 	bind => [50, SEQ_GEN_TABLE]
-[EL Fine]: sql: 2019-07-23 09:53:22.884--ClientSession(913242382)--Connection(1221027335)--Thread(Thread[main,5,main])--SELECT SEQ_COUNT FROM SEQUENCE WHERE SEQ_NAME = ?
+[EL Fine]: sql: 2019-09-20 15:25:50.24--ClientSession(144699438)--Connection(1341706533)--Thread(Thread[main,5,main])--SELECT SEQ_COUNT FROM SEQUENCE WHERE SEQ_NAME = ?
 	bind => [SEQ_GEN_TABLE]
-[EL Fine]: sql: 2019-07-23 09:53:22.891--ClientSession(913242382)--Connection(1221027335)--Thread(Thread[main,5,main])--INSERT INTO USERTBL (ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME) VALUES (?, ?, ?, ?, ?, ?, ?)
-	bind => [201, user1, null, false, user1name, null, null]
-[EL Fine]: sql: 2019-07-23 09:53:22.922--ClientSession(2143571436)--Connection(1221027335)--Thread(Thread[main,5,main])--UPDATE USERTBL SET E_MAIL = ?, IS_ADMIN = ?, PASSWORD = ? WHERE (ID = ?)
-	bind => [micky@destiney.land.hell, true, micky, 201]
-[EL Fine]: sql: 2019-07-23 09:53:22.941--ServerSession(187472540)--Connection(1221027335)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME FROM USERTBL WHERE (ACCOUNT = ?)
+[EL Fine]: sql: 2019-09-20 15:25:50.255--ClientSession(144699438)--Connection(1341706533)--Thread(Thread[main,5,main])--INSERT INTO USERTBL (ID, ACCOUNT, ADMIN_FLG, E_MAIL, NAME, PASSWORD, THEME) VALUES (?, ?, ?, ?, ?, ?, ?)
+	bind => [901, user1, false, null, user1name, null, null]
+[EL Fine]: sql: 2019-09-20 15:25:50.287--ClientSession(822232612)--Connection(1341706533)--Thread(Thread[main,5,main])--UPDATE USERTBL SET ADMIN_FLG = ?, E_MAIL = ?, PASSWORD = ? WHERE (ID = ?)
+	bind => [true, micky@destiney.land.hell, micky, 901]
+[EL Fine]: sql: 2019-09-20 15:25:50.307--ServerSession(1217467887)--Connection(1341706533)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, ADMIN_FLG, E_MAIL, NAME, PASSWORD, THEME FROM USERTBL WHERE (ACCOUNT = ?)
 	bind => [user1]
-[EL Fine]: sql: 2019-07-23 09:53:22.953--ServerSession(187472540)--Connection(1221027335)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME FROM USERTBL WHERE ((ACCOUNT = ?) AND (PASSWORD = ?))
+[EL Fine]: sql: 2019-09-20 15:25:50.322--ServerSession(1217467887)--Connection(1341706533)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, ADMIN_FLG, E_MAIL, NAME, PASSWORD, THEME FROM USERTBL WHERE ((ACCOUNT = ?) AND (PASSWORD = ?))
 	bind => [user1, micky]
-[EL Fine]: sql: 2019-07-23 09:53:22.965--ServerSession(187472540)--Connection(1221027335)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME FROM USERTBL ORDER BY ACCOUNT ASC
-[EL Fine]: sql: 2019-07-23 09:53:22.977--ClientSession(1482748887)--Connection(1221027335)--Thread(Thread[main,5,main])--DELETE FROM USERTBL WHERE (ID = ?)
-	bind => [201]
-[EL Fine]: sql: 2019-07-23 09:53:22.992--ServerSession(187472540)--Connection(1221027335)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME FROM USERTBL WHERE (ACCOUNT = ?)
+[EL Fine]: sql: 2019-09-20 15:25:50.334--ServerSession(1217467887)--Connection(1341706533)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, ADMIN_FLG, E_MAIL, NAME, PASSWORD, THEME FROM USERTBL ORDER BY ACCOUNT ASC
+[EL Fine]: sql: 2019-09-20 15:25:50.35--ClientSession(1877986974)--Connection(1341706533)--Thread(Thread[main,5,main])--DELETE FROM USERTBL WHERE (ID = ?)
+	bind => [901]
+[EL Fine]: sql: 2019-09-20 15:25:50.363--ServerSession(1217467887)--Connection(1341706533)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, ADMIN_FLG, E_MAIL, NAME, PASSWORD, THEME FROM USERTBL WHERE (ACCOUNT = ?)
 	bind => [user1]
-[EL Fine]: sql: 2019-07-23 09:53:23.003--ServerSession(187472540)--Connection(1221027335)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, E_MAIL, IS_ADMIN, NAME, PASSWORD, THEME FROM USERTBL ORDER BY ACCOUNT ASC
+[EL Fine]: sql: 2019-09-20 15:25:50.375--ServerSession(1217467887)--Connection(1341706533)--Thread(Thread[main,5,main])--SELECT ID, ACCOUNT, ADMIN_FLG, E_MAIL, NAME, PASSWORD, THEME FROM USERTBL ORDER BY ACCOUNT ASC
